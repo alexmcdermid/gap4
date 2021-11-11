@@ -4,22 +4,26 @@ import { getRhymes } from "../../services/rhyme";
 
 class Search extends Component {
     state={
-        search:""
+        search:"",
+        data:null
     }
     handleSearchChange = (e) => {
         this.setState({
             search:e.target.value
         })
     }
-    handleSearchSubmit(){
-
+    async handleSearchSubmit(){
+        const data = await getRhymes(this.state.search)
+        this.setState({
+            data:data
+        })
     }
     render(){
         return (
             <>
             <h1>Search Component</h1>
             <input onChange={this.handleSearchChange}/>
-            <button onClick={this.handleSearchSubmit}>Submit</button>
+            <button onClick={()=>{this.handleSearchSubmit(this)}}>Submit</button>
             </>
         );
     }
