@@ -25,7 +25,7 @@ class Search extends Component {
             <h1>Search Component</h1>
             <input onChange={this.handleSearchChange}/>
             <button onClick={()=>{this.handleSearchSubmit(this)}}>Submit</button>
-            {this.state.data!=null ?  <>{this.state.data.map(item=><Result word={item.word}/>)}</> : <></>}
+            {this.state.data!=null ?  <>{this.state.data.map(function(item,index){return(<Result word={item.word} key={index}/>)})}</> : <></>}
             </>
         );
     }
