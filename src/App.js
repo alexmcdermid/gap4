@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     data:null
   }
-  handSearchUpdateDate(data) {
+  handSearchUpdateDate = (data) => {
     this.setState({
       data:data
     })
@@ -17,12 +17,12 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" fixed="top">
           <Container fluid>
             <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
           </Container>
         </Navbar>
-        {/* {this.state.data!=null ?  <><br/> Results:<div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>} */}
+        {this.state.data!=null ?  <><br/> Results:<div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
           <Nav.Link href="#linkSearch">Search</Nav.Link>
