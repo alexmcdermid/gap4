@@ -23,7 +23,7 @@ class Search extends Component {
         return (
             <>
             <input className='mainInput' onChange={this.handleSearchChange} />
-            {/* could have submit only popup when mainInput is being changed */}
+            {/* could have submit only popup when mainInput is being */}
             <button onClick={()=>{this.handleSearchSubmit(this)}}>Submit</button>
             <h1>Search Component</h1>
             {this.state.data!=null ?  <><br/> Results:<div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>}
