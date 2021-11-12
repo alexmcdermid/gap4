@@ -3,6 +3,8 @@ import './App.css';
 import Search from './components/Search/Search'
 import Result from './components/Result/Result';
 import { Navbar,Container,Nav } from 'react-bootstrap';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 
 class App extends Component {
   state = {
@@ -25,10 +27,10 @@ class App extends Component {
         {this.state.data!=null ?  <><br/> Results:<div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
-          <Nav.Link href="#linkSearch">Search</Nav.Link>
-          <Nav.Link href="#linkNote">Notebook</Nav.Link>
-          <Nav.Link href="#linkSaved">Saved</Nav.Link>
-          <Nav.Link href="#linkProfile">Profile</Nav.Link>
+          <Nav.Link href="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch}/>Search</div></Nav.Link>
+          <Nav.Link href="#linkNote"><div className='bottomNavElement'><FontAwesomeIcon icon={faEdit}/>Notebook</div></Nav.Link>
+          <Nav.Link href="#linkSaved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart}/>Saved</div></Nav.Link>
+          <Nav.Link href="#linkProfile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser}/>Profile</div></Nav.Link>
           </Container>
         </Navbar>
       

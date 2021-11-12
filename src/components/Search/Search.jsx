@@ -1,7 +1,6 @@
 import React from "react";
 import { Component } from "react";
 import { getRhymes } from "../../services/rhyme";
-import Result from '../Result/Result'
 
 class Search extends Component {
     state={
