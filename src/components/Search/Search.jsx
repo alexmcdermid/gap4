@@ -18,6 +18,7 @@ class Search extends Component {
         this.setState({
             data:data
         })
+        // this.props.handSearchUpdateDate(this.state.data)
     }
     render(){
         return (
@@ -25,7 +26,7 @@ class Search extends Component {
             <input className='mainInput' onChange={this.handleSearchChange} />
             {/* could have submit only popup when mainInput is being */}
             <button onClick={()=>{this.handleSearchSubmit(this)}}>Submit</button>
-            <h1>Search Component</h1>
+            {/* need to get data back to app.js to display not in navbar */}
             {this.state.data!=null ?  <><br/> Results:<div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>}
             </>
         );
