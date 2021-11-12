@@ -27,10 +27,10 @@ class App extends Component {
         {this.state.data!=null ?  <><br/> Results:<div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
-          <Nav.Link href="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch}/>Search</div></Nav.Link>
-          <Nav.Link href="#linkNote"><div className='bottomNavElement'><FontAwesomeIcon icon={faEdit}/>Notebook</div></Nav.Link>
-          <Nav.Link href="#linkSaved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart}/>Saved</div></Nav.Link>
-          <Nav.Link href="#linkProfile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser}/>Profile</div></Nav.Link>
+          <Nav.Link href="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
+          <Nav.Link href="#linkNote"><div className='bottomNavElement'><FontAwesomeIcon icon={faEdit} size="2x"/>Notebook</div></Nav.Link>
+          <Nav.Link href="#linkSaved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x"/>Saved</div></Nav.Link>
+          <Nav.Link href="#linkProfile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser} size="2x"/>Profile</div></Nav.Link>
           </Container>
         </Navbar>
       
