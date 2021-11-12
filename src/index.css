@@ -12,7 +12,3 @@ code {
     monospace;
 }
 
-.bottomNavElement{
-  display: flex;
-  flex-direction: column;
-}
