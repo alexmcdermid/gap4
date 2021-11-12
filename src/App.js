@@ -10,6 +10,10 @@ class App extends Component {
         <Search/>
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
+          <Nav.Link href="#action1">Search</Nav.Link>
+          <Nav.Link href="#action2">Notebook</Nav.Link>
+          <Nav.Link href="#action1">Saved</Nav.Link>
+          <Nav.Link href="#action2">Profile</Nav.Link>
           </Container>
         </Navbar>
       
