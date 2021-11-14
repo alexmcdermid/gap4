@@ -15,8 +15,8 @@ a.nav-link {
 }
 
 .resultItem {
-  padding: 2%;
-  outline: auto;
+  font-size: 18px;
+  line-height: 32px;
 }
 
 .bottomNavElement{
@@ -92,4 +92,15 @@ button.mainSearch{
   border: solid;
   border-color: #fff;
   height:36px;
+}
+
+.buttonLink{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #000000;
+  cursor: pointer;
 }

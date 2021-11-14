@@ -30,7 +30,7 @@ class Search extends Component {
             let tempArr = this.state.data.map(item=>item)
             let returnArr = []
             for (let i = 0; i<tempArr.length; i++){
-                if (tempArr[i].score==300) returnArr.push(tempArr[i])
+                if (tempArr[i].score===300) returnArr.push(tempArr[i])
             }
             this.props.handSearchUpdateDate(returnArr,'MaxScoreOnly')   
             this.setState({maxScoreData:returnArr}) 
