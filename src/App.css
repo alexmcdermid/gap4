@@ -12,6 +12,8 @@ a.nav-link {
 .results{
   display: flex;
   flex-wrap: wrap;
+  width: 88%;
+  margin-left: 7%;
 }
 
 .resultItem {
