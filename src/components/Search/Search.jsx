@@ -9,7 +9,9 @@ import {faSearch} from "@fortawesome/free-solid-svg-icons"
 class Search extends Component {
     state={
         search:"",
-        data:null
+        data:null,
+        maxScoreBool:false,
+        maxScoreData:null
     }
     handleSearchChange = (e) => {
         this.setState({
@@ -23,9 +25,25 @@ class Search extends Component {
         })
         this.props.handSearchUpdateDate(this.state.data)
     }
+    handleFilterMaxScore = () => {
+        if (this.state.data!=null) {
+            let tempArr = this.state.data.map(item=>item)
+            let returnArr = []
+            for (let i = 0; i<tempArr.length; i++){
+                if (tempArr[i].score==300) returnArr.push(tempArr[i])
+            }
+            this.props.handSearchUpdateDate(returnArr,'MaxScoreOnly')   
+            this.setState({maxScoreData:returnArr}) 
+        }
+    }
+    handleReset = () => {
+        if (this.state.data!=null) {
+            this.props.handSearchUpdateDate(this.state.data,null)   
+        }
+    }
     render(){
         return (
-            <div className='searchDiv'>
+            <div className='searchbarWrapper'>
             <input className='mainInput' onChange={this.handleSearchChange} placeholder='   Search' />
             <Button className="mainSearch" onClick={()=>{this.handleSearchSubmit(this)}}><FontAwesomeIcon icon={faSearch}/></Button>
             <Dropdown>
@@ -34,8 +52,8 @@ class Search extends Component {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item as="button" onClick={()=>{console.log(123)}}>Filter</Dropdown.Item>
-                    <Dropdown.Item as="button" onClick={()=>{console.log(456)}}>Filter2</Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={()=>{this.handleFilterMaxScore()}}>Max Scores Only</Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={()=>{this.handleReset()}}>Reset Filters</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             </div>

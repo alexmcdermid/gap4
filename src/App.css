@@ -55,11 +55,12 @@ nav.navbar{
   margin-left: 12%;
 }
 
-.searchDiv{
+.searchbarWrapper{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 
 #dropdown-basic{
   color: blue;
@@ -71,6 +72,7 @@ nav.navbar{
   font-style: normal;
   line-height: 1.29;
   letter-spacing: -0.41px;
+  margin-left: 5%;
 }
 
 .mainInput{
