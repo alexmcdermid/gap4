@@ -64,8 +64,30 @@ nav.navbar{
 #dropdown-basic{
   color: blue;
   background-color: #fff;
+  border: none !important;
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: -0.41px;
 }
 
 .mainInput{
-  width: 80%;
+  margin-left: 5%;
+  width: 60%;
+  background-color: rgba(118, 118, 128, 0.12);
+  border-radius: 10px;
+  border: solid;
+  border-color: #fff;
+  height:36px;
+}
+
+button.mainSearch{
+  background-color: rgba(118, 118, 128, 0.12);
+  color: blue;
+  border-radius: 10px;
+  border: solid;
+  border-color: #fff;
+  height:36px;
 }

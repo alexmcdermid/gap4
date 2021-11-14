@@ -1,7 +1,10 @@
 import React from "react";
 import { Component } from "react";
 import { getRhymes } from "../../services/rhyme";
-import {Dropdown} from 'react-bootstrap'
+import {Dropdown,Button} from 'react-bootstrap'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faSearch} from "@fortawesome/free-solid-svg-icons"
+
 
 class Search extends Component {
     state={
@@ -23,10 +26,11 @@ class Search extends Component {
     render(){
         return (
             <div className='searchDiv'>
-            <input className='mainInput' onChange={this.handleSearchChange} />
+            <input className='mainInput' onChange={this.handleSearchChange} placeholder='   Search' />
+            <Button className="mainSearch" onClick={()=>{this.handleSearchSubmit(this)}}><FontAwesomeIcon icon={faSearch}/></Button>
             <Dropdown>
                 <Dropdown.Toggle id="dropdown-basic">
-                    Filter
+                    Filters
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -34,7 +38,6 @@ class Search extends Component {
                     <Dropdown.Item as="button" onClick={()=>{console.log(456)}}>Filter2</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-            <button onClick={()=>{this.handleSearchSubmit(this)}}>Submit</button>
             </div>
         );
     }
