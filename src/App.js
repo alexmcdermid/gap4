@@ -6,6 +6,7 @@ import { Navbar,Container,Nav } from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 
+
 class App extends Component {
   state = {
     data:null
@@ -19,11 +20,12 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Navbar bg="light" expand="lg" fixed="top">
-          <Container fluid>
-            <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
-          </Container>
-        </Navbar>
+        <br/>
+        <div className='topText'>RHYME TIME HOME</div>
+        <br/>
+        <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
+        <br/><br/>
+        <div className="welcomeUser">Welcome userX</div>
         {this.state.data!=null ?  <><br/> Results:<div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
