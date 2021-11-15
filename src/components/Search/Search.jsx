@@ -17,10 +17,16 @@ class Search extends Component {
             search:e.target.value
         })
     }
+    // todo
+    handleSyllableSort=(data)=>{
+
+        return data
+    }
     handleSearchSubmit = async () =>{
         const data = await getRhymes(this.state.search)
+        const dataSorted = this.handleSyllableSort(data)
         this.setState({
-            data:data
+            data:dataSorted
         })
         this.props.handSearchUpdateDate(this.state.data,null,this.state.search)
     }
