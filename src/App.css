@@ -104,11 +104,10 @@ button.mainSearch{
   font-family: arial, sans-serif;
   /*input has OS specific font-family*/
   color: #000000;
-  cursor: pointer;
 }
 
 .wordToSaveToast{
-  background-color: darkgray;
+  background-color: rgba(118, 118, 128, 0.75);
   margin: 1%;
   padding: 1%;
   padding-left: 2%;
@@ -139,3 +138,52 @@ button.mainSearch{
   border-radius: 10px;
 }
 
+.savedPage{
+  margin-top: 10%;
+}
+.savedPageResults {
+  margin-top: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(118, 118, 128, 0.12);
+}
+
+.savedResultsDiv{
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  margin:3%;
+  padding-bottom: 5%;
+  border-bottom: solid rgba(118, 118, 128, 0.75);
+}
+
+.savedWord{
+  background-color: rgba(118, 118, 128, 0.75);
+  margin: 1%;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 10px;
+  height: 32px;
+}
+
+.inputWord{
+  background-color: rgba(118, 118, 128, 0.75);
+  margin: 1%;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 10px;
+  height: 32px;
+}
+
+.savedWordsContainer{
+  display: flex;
+  height: fit-content;
+  flex-wrap: wrap;
+}
