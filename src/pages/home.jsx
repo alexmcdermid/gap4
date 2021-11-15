@@ -53,6 +53,7 @@ class HomePage extends Component {
           })
           console.log(response)
           this.setState({wordsToSave:[],alertSave:true})
+          this.handleSaveAlertTime()
         } catch (err) {
           console.log('words to save submit error saving to db', err)
         }
@@ -60,7 +61,7 @@ class HomePage extends Component {
       handleSaveAlertTime=()=>{
         setTimeout(()=>{
           this.setState({alertSave:false})
-        },5000)
+        },3000)
       }
 
     render() {
@@ -77,7 +78,6 @@ class HomePage extends Component {
         {/* saved alert */}
        <Alert show={this.state.alertSave} variant='success'>
          <Alert.Heading>Words Saved!</Alert.Heading>
-          {this.handleSaveAlertTime()}
          </Alert>
         {/* results */}
         {this.state.data!=null ?  <><br/> Results: {this.state.data.length} Words
