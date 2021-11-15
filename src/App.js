@@ -28,6 +28,13 @@ class App extends Component {
       this.setState({
         wordsToSave:tempArr
       })
+    } else {
+      for (let i = 0; i<tempArr.length; i++) {
+        if (tempArr[i] == word) tempArr.splice(i,1)
+      }
+      this.setState({
+        wordsToSave:tempArr
+      })
     }
   }
 
