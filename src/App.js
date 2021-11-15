@@ -50,7 +50,7 @@ class App extends Component {
         <br/>
         <div className="welcomeUser">Welcome userX</div>
         {this.state.data!=null ?  <><br/> Results: {this.state.data.length} Words
-        <div className='results'><Result data={this.state.data} handleWordSave={this.handleWordSave}/></div></> : <></>}
+        <div className='results'><Result data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave}/></div></> : <></>}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
           <Nav.Link href="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
