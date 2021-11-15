@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import '../App';
+import '../App.css'
 
 class Saved extends Component {
     state = {
@@ -20,13 +21,22 @@ class Saved extends Component {
     }
     render() {
         return(
-            <>
+            <div className='savedPage'>
+                Saved Page
+            <div className='savedPageResults'>
             {this.state.data != null ? 
             this.state.data.map((item,index)=>{
-                return(<div key={index}>inputword:{item.inputWord}<br/>selectedwords:{item.selectedWord}<hr/></div>)
+                return(<div key={index} className='savedResultsDiv'><span className='inputWord'>
+                    <button className='buttonLink'>{item.inputWord} X</button>
+                    </span><div className='savedWordsContainer'>{
+                    item.selectedWord.map((item,index)=>{
+                        return(<span className='savedWord' key={index}>
+                            <button className='buttonLink' >{item}&nbsp;X</button></span>)})}</div>
+                    </div>)
             }) 
             : <></>}
-            </>
+            </div>
+            </div>
         );
     }
 }
