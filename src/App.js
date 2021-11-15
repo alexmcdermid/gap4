@@ -37,6 +37,12 @@ class App extends Component {
       })
     }
   }
+  handleClearAllSaveWords=()=>{
+    let tempArr = [];
+    this.setState({
+      wordsToSave:tempArr
+    })
+  }
 
 
   render(){
@@ -62,13 +68,13 @@ class App extends Component {
             <Toast.Body>
             <div>
             {this.state.wordsToSave.map(function(item,index){return(
-            <text key='index'>
+            <span key={index}>
             <button className='buttonLink' >{item}&nbsp;</button>
             <button>x</button>
-             </text>
+             </span>
             )})}
             <br/>
-            <button>clear all</button>
+            <button onClick={this.handleClearAllSaveWords}>clear all</button>
             <button>save</button>
             </div>
             </Toast.Body>
