@@ -10,12 +10,13 @@ async function create(req, res){
     try{
         console.log(req.body)
         let result = await Word.create({
-            inputWord : req.body.inputWord,
-            selectedWord : req.body.selectedWord
+            inputWord : req.body.search,
+            selectedWord : req.body.words
         })
         console.log("database:" , result);
         res.status(200).json("added to the database")
     }catch(err){
+        console.log('made it to create but erroring')
         res.status(400).json(err);
     }
 }

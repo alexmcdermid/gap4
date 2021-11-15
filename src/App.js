@@ -2,7 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import Search from './components/Search/Search'
 import Result from './components/Result/Result';
-import { Navbar,Container,Nav, Toast, ToastContainer } from 'react-bootstrap';
+import { Navbar,Container,Nav, Toast, ToastContainer, Alert } from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 
@@ -12,7 +12,8 @@ class App extends Component {
     search:null,
     data:null,
     filters:null,
-    wordsToSave:[]
+    wordsToSave:[],
+    alertSave:false
   }
   handSearchUpdateDate = (data,filter,search) => {
     this.setState({
@@ -23,7 +24,6 @@ class App extends Component {
      
   }
   handleWordSave = (word) => {
-    console.log('saving', word)
     let tempArr = this.state.wordsToSave.map(item=>item)
     if (!tempArr.includes(word)) {
       tempArr.push(word)
@@ -45,6 +45,25 @@ class App extends Component {
       wordsToSave:tempArr
     })
   }
+  handleSubmitSavedWords=async(event)=>{
+    event.preventDefault();
+    try{
+      let response = await fetch('/api/add', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({search: this.state.search, words: this.state.wordsToSave, })
+      })
+      console.log(response)
+      this.setState({wordsToSave:[],alertSave:true})
+    } catch (err) {
+      console.log('words to save submit error saving to db', err)
+    }
+  }
+  handleSaveAlertTime=()=>{
+    setTimeout(()=>{
+      this.setState({alertSave:false})
+    },5000)
+  }
 
 
   render(){
@@ -60,6 +79,11 @@ class App extends Component {
         {this.state.filters==null ? <></>:<>Filter: {this.state.filters}</> }
         <br/>
         <div className="welcomeUser">Welcome userX</div>
+        {/* saved alert */}
+       <Alert show={this.state.alertSave} variant='success'>
+         <Alert.Heading>Words Saved!</Alert.Heading>
+          {this.handleSaveAlertTime()}
+         </Alert>
         {/* results */}
         {this.state.data!=null ?  <><br/> Results: {this.state.data.length} Words
         <div className='results'><Result data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave}/></div></> : <></>}
@@ -76,14 +100,16 @@ class App extends Component {
             )})}
             <br/>
             <span className='saveClearButtonBar'>
-            <button className='bigRedSaveButton'>Save Selection</button>
-            <button className='bigRedClearButton' onClick={this.handleClearAllSaveWords}>clear all</button>
+            <button className='bigRedSaveButton' onClick={this.handleSubmitSavedWords}>Save Selection</button>
+            <button className='bigRedClearButton' onClick={this.handleClearAllSaveWords}>Clear</button>
             </span>
             </div>
             </Toast.Body>
           </Toast>
         </ToastContainer>
        : <div/>}
+       
+       {/* bottom navbar */}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
           <Nav.Link href="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
