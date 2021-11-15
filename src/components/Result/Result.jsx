@@ -1,7 +1,7 @@
 export default function Result(props){
     return(
         <div className="resultItem">
-            {props.index+1}. {props.word}
+             <button className='buttonLink' onClick={()=>{console.log(`add item ${props.word} to list of words to save`)}}>{props.word},&nbsp;</button>
         </div>
     )
 }
