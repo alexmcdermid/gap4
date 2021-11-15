@@ -11,64 +11,7 @@ import HomePage from '../src/pages/home'
 
 
 class App extends Component {
-  state = {
-    search:null,
-    data:null,
-    filters:null,
-    wordsToSave:[],
-    alertSave:false
-  }
-  handSearchUpdateDate = (data,filter,search) => {
-    this.setState({
-      search:search,
-      data:data,
-      filters:filter,
-    })
-     
-  }
-  handleWordSave = (word) => {
-    let tempArr = this.state.wordsToSave.map(item=>item)
-    if (!tempArr.includes(word)) {
-      tempArr.push(word)
-      this.setState({
-        wordsToSave:tempArr
-      })
-    } else {
-      for (let i = 0; i<tempArr.length; i++) {
-        if (tempArr[i] === word) tempArr.splice(i,1)
-      }
-      this.setState({
-        wordsToSave:tempArr
-      })
-    }
-  }
-  handleClearAllSaveWords=()=>{
-    let tempArr = [];
-    this.setState({
-      wordsToSave:tempArr
-    })
-  }
-  handleSubmitSavedWords=async(event)=>{
-    event.preventDefault();
-    try{
-      let response = await fetch('/api/add', {
-        method: 'POST',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({search: this.state.search, words: this.state.wordsToSave, })
-      })
-      console.log(response)
-      this.setState({wordsToSave:[],alertSave:true})
-    } catch (err) {
-      console.log('words to save submit error saving to db', err)
-    }
-  }
-  handleSaveAlertTime=()=>{
-    setTimeout(()=>{
-      this.setState({alertSave:false})
-    },5000)
-  }
-
-
+  
   render(){
     
 
