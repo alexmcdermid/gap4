@@ -16,7 +16,7 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api',require('./routes/api/words.js'))
-
+app.use('/api/notebook' , require('./routes/api/sentence.js'))
 
 //"catch-all" route for client side routing
 app.get('/*', function (req, res) {
