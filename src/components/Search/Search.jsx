@@ -10,7 +10,6 @@ class Search extends Component {
     state={
         search:"",
         data:null,
-        maxScoreBool:false,
         maxScoreData:null
     }
     handleSearchChange = (e) => {

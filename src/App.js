@@ -10,7 +10,7 @@ import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 class App extends Component {
   state = {
     data:null,
-    filters:null
+    filters:null,
   }
   handSearchUpdateDate = (data,filter) => {
     this.setState({
@@ -19,6 +19,7 @@ class App extends Component {
     })
      
   }
+
   render(){
     return (
       <div className="App">
@@ -31,7 +32,7 @@ class App extends Component {
         <br/>
         <div className="welcomeUser">Welcome userX</div>
         {this.state.data!=null ?  <><br/> Results: {this.state.data.length} Words
-        <div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index}/>)})}</div></> : <></>}
+        <div className='results'>{this.state.data.map(function(item,index){return(<Result word={item.word} index={index} key={index} />)})}</div></> : <></>}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
           <Nav.Link href="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
