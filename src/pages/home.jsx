@@ -2,9 +2,7 @@ import { Component } from 'react';
 import '../App';
 import Search from '../components/Search/Search'
 import Result from '../components/Result/Result';
-import { Navbar,Container,Nav, Toast, ToastContainer, Alert } from 'react-bootstrap';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
+import { Toast, ToastContainer, Alert } from 'react-bootstrap';
 
 class HomePage extends Component {
 
