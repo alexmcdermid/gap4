@@ -1,10 +1,9 @@
 import { Component } from 'react';
 import './App.css';
-import Search from './components/Search/Search'
-import Result from './components/Result/Result';
-import { Navbar,Container,Nav, Toast, ToastContainer } from 'react-bootstrap';
+import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import { Navbar,Container,Nav } from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
+import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons";
 import {Route, Switch, Redirect} from "react-router-dom";
 import NoteBookPage from './pages/NoteBookPage/NoteBookPage';
 
@@ -39,47 +38,35 @@ class App extends Component {
     }
   }
 
+import HomePage from '../src/pages/home'
 
+
+
+class App extends Component {
+  
   render(){
     
 
     return (
       <div className="App">
-        <br/>
-        <div className='topText'>RHYME TIME HOME</div>
-        <br/>
-        <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
-        <br/>
-        {this.state.filters==null ? <></>:<>Filter: {this.state.filters}</> }
-        <br/>
-        <div className="welcomeUser">Welcome userX</div>
-        {/* results */}
-        {this.state.data!=null ?  <><br/> Results: {this.state.data.length} Words
-        <div className='results'><Result data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave}/></div></> : <></>}
-        {/* toats */}
-        {this.state.wordsToSave.length > 0 ?  
-          <ToastContainer className="p-3" position='top-center'>
-          <Toast>
-            <Toast.Body>
-            <div>
-            {this.state.wordsToSave.map(function(item,index){return(
-            <text key='index'>
-            <button className='buttonLink' >{item}&nbsp;</button>
-            <button>x</button>
-             </text>
-            )})}
-            <br/>
-            <button>clear all</button>
-            <button>save</button>
-            </div>
-            </Toast.Body>
-          </Toast>
-        </ToastContainer>
-       : <div/>}
+       
+       <BrowserRouter>
+       <Switch>
+          <Route path='/' render={(props) => (
+            <HomePage {...props}/>
+          )}/>
+          
+          {/* and in case nothing matches, we redirect: */}
+          <Redirect to="/" />
+        </Switch>
+        </BrowserRouter>
+       {/* bottom navbar */}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
-          <Nav.Link to="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
+
           <Nav.Link href="/notebook"><div className='bottomNavElement'><div className='notebook'><FontAwesomeIcon icon={faEdit} size="2x"/></div>Notebook</div></Nav.Link>
+          <Nav.Link href="/"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
+         
           <Nav.Link href="#linkSaved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x"/>Saved</div></Nav.Link>
           <Nav.Link href="#linkProfile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser} size="2x"/>Profile</div></Nav.Link>
           </Container>
