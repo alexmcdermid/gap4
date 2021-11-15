@@ -62,6 +62,13 @@ class HomeComp extends Component {
           this.setState({alertSave:false})
         },3000)
       }
+      handleRemoveSingleWordFromToSave=(item)=>{
+        let tempArr = this.state.wordsToSave
+        for (let i = 0; i<tempArr.length; i++) {
+            if(tempArr[i] === item) tempArr.splice(i,1)
+        }
+        this.setState({wordsToSave:tempArr})
+      }
 
     render() {
         return(
@@ -87,9 +94,11 @@ class HomeComp extends Component {
           <Toast>
             <Toast.Body>
             <div>
-            {this.state.wordsToSave.map(function(item,index){return(
+            {this.state.wordsToSave.map((item,index)=>{return(
             <span className='wordToSaveToast' key={index}>
-            <button className='buttonLink' >{item}&nbsp;&nbsp;x</button>
+            <button className='buttonLink' 
+            onClick={()=>{this.handleRemoveSingleWordFromToSave(item)}}
+            >{item}&nbsp;&nbsp;x</button>
              </span>
             )})}
             <br/>
