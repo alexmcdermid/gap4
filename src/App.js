@@ -1,9 +1,7 @@
 import { Component } from 'react';
 import './App.css';
-import Search from './components/Search/Search'
-import Result from './components/Result/Result';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
-import { Navbar,Container,Nav, Toast, ToastContainer, Alert } from 'react-bootstrap';
+import { Navbar,Container,Nav } from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 
