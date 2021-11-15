@@ -7,6 +7,7 @@ import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 
 import HomePage from './pages/home'
 import NoteBook from './pages/notebook';
+import Saved from './pages/saved';
 
 
 class App extends Component {
@@ -23,6 +24,9 @@ class App extends Component {
           <Route exact path='/notebook' render={(props) => (
             <NoteBook {...props}/>
           )}/>
+          <Route exact path='/saved' render={(props) => (
+            <Saved {...props}/>
+          )}/>
         
           
           {/* and in case nothing matches, we redirect: */}
@@ -34,7 +38,7 @@ class App extends Component {
           <Container fluid>
           <Nav.Link href="/"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
           <Nav.Link href="/notebook"><div className='bottomNavElement'><div className='notebook'><FontAwesomeIcon icon={faEdit} size="2x"/></div>Notebook</div></Nav.Link>
-          <Nav.Link href="#linkSaved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x"/>Saved</div></Nav.Link>
+          <Nav.Link href="/saved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x"/>Saved</div></Nav.Link>
           <Nav.Link href="#linkProfile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser} size="2x"/>Profile</div></Nav.Link>
           </Container>
         </Navbar>
