@@ -1,7 +1,8 @@
+
 function NoteBook (props){
     return(
         <>
-        
+        <h1>write</h1>
         </>
     )
 }
