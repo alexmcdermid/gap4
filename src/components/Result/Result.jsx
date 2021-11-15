@@ -1,7 +1,9 @@
 export default function Result(props){
     return(
         <div className="resultItem">
-             <button className='buttonLink' onClick={()=>{console.log(`add item ${props.word} to list of words to save`)}}>{props.word},&nbsp;</button>
+            {props.data.map(function(item,index){return(
+                <button className='buttonLink' key={index} onClick={()=>{props.handleWordSave(item.word)}} >{item.word},&nbsp;</button>
+            )})}
         </div>
     )
 }
