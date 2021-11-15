@@ -7,7 +7,7 @@ class NoteBook extends Component {
     render() {
         return(
             <>
-          
+            some other stuff
             </>
         );
     }

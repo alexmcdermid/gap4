@@ -5,7 +5,7 @@ import { Navbar,Container,Nav } from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 
-import HomePage from '../src/pages/home'
+import HomePage from './pages/home'
 import NoteBook from './pages/notebook';
 
 
@@ -17,12 +17,13 @@ class App extends Component {
        
        <BrowserRouter>
        <Switch>
-          <Route path='/' render={(props) => (
+         <Route exact path='/' render={(props) => (
             <HomePage {...props}/>
           )}/>
-          <Route path='/notebook' render={(props) => (
+          <Route exact path='/notebook' render={(props) => (
             <NoteBook {...props}/>
           )}/>
+        
           
           {/* and in case nothing matches, we redirect: */}
           <Redirect to="/" />
