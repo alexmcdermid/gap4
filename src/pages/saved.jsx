@@ -2,9 +2,14 @@ import { Component } from 'react';
 import '../App';
 import '../App.css'
 
+
 class Saved extends Component {
     state = {
         data:null
+    }
+    routeChange=()=>{
+        let path = ''
+        this.props.history.push(path)
     }
     async componentDidMount(){
         try{
@@ -27,11 +32,14 @@ class Saved extends Component {
             {this.state.data != null ? 
             this.state.data.map((item,index)=>{
                 return(<div key={index} className='savedResultsDiv'><span className='inputWord'>
-                    <button className='buttonLink'>{item.inputWord} X</button>
+                    <button className='buttonLink'>{item.inputWord} x</button>
                     </span><div className='savedWordsContainer'>{
                     item.selectedWord.map((item,index)=>{
                         return(<span className='savedWord' key={index}>
-                            <button className='buttonLink' >{item}&nbsp;X</button></span>)})}</div>
+                            <button className='buttonLink' >{item}&nbsp;x</button></span>)})}
+                            <span className='inputWord' style={{backgroundColor:'red'}}>
+                                <button className='buttonLink' onClick={()=>{this.routeChange()}}>Add +</button></span>
+                            </div>
                     </div>)
             }) 
             : <></>}
