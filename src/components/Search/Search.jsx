@@ -22,7 +22,7 @@ class Search extends Component {
         this.setState({
             data:data
         })
-        this.props.handSearchUpdateDate(this.state.data)
+        this.props.handSearchUpdateDate(this.state.data,null,this.state.search)
     }
     handleFilterMaxScore = () => {
         if (this.state.data!=null) {
@@ -31,13 +31,13 @@ class Search extends Component {
             for (let i = 0; i<tempArr.length; i++){
                 if (tempArr[i].score===300) returnArr.push(tempArr[i])
             }
-            this.props.handSearchUpdateDate(returnArr,'MaxScoreOnly')   
+            this.props.handSearchUpdateDate(returnArr,'MaxScoreOnly',this.state.search)   
             this.setState({maxScoreData:returnArr}) 
         }
     }
     handleReset = () => {
         if (this.state.data!=null) {
-            this.props.handSearchUpdateDate(this.state.data,null)   
+            this.props.handSearchUpdateDate(this.state.data,null,this.state.search)   
         }
     }
     render(){

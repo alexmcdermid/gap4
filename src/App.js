@@ -9,14 +9,16 @@ import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
 
 class App extends Component {
   state = {
+    search:null,
     data:null,
     filters:null,
     wordsToSave:[]
   }
-  handSearchUpdateDate = (data,filter) => {
+  handSearchUpdateDate = (data,filter,search) => {
     this.setState({
+      search:search,
       data:data,
-      filters:filter
+      filters:filter,
     })
      
   }
@@ -68,14 +70,15 @@ class App extends Component {
             <Toast.Body>
             <div>
             {this.state.wordsToSave.map(function(item,index){return(
-            <span key={index}>
-            <button className='buttonLink' >{item}&nbsp;</button>
-            <button>x</button>
+            <span className='wordToSaveToast' key={index}>
+            <button className='buttonLink' >{item}&nbsp;&nbsp;x</button>
              </span>
             )})}
             <br/>
-            <button onClick={this.handleClearAllSaveWords}>clear all</button>
-            <button>save</button>
+            <span className='saveClearButtonBar'>
+            <button className='bigRedSaveButton'>Save Selection</button>
+            <button className='bigRedClearButton' onClick={this.handleClearAllSaveWords}>clear all</button>
+            </span>
             </div>
             </Toast.Body>
           </Toast>
