@@ -3,7 +3,8 @@ const Word = require('../models/words.js');
 module.exports = {
     create,
     show,
-    deleteWords
+    deleteWords,
+    deleteWord
 }
 
 async function create(req, res){
@@ -23,18 +24,39 @@ async function create(req, res){
 
 async function show(req,res){
     try{
-        let showResult = await Word.find();
-        res.status(200).json(showResult);
+        // let showResult = await Word.find();
+        // res.status(200).json(showResult);
+        Word.find({}).sort('-createdAt').exec((err,showResult)=>{
+            res.status(200).json(showResult)
+        })
     }catch(err){
         res.status(400).json(err)
     }
 }
 
 async function deleteWords(req,res){
+    console.log('wojvnwvnw',req.params.id)
     try{
         let deletedItem = await Word.findByIdAndRemove(req.params.id);
-        let items = await Word.find();
-        res.status(200).json(items);
+        // let items = await Word.find();
+        // res.status(200).json(items);
+        Word.find({}).sort('-createdAt').exec((err,showResult)=>{
+            res.status(200).json(showResult)
+        })
+    }catch(err){
+        res.status(400).json(err);
+    }
+}
+
+async function deleteWord(req,res){
+    console.log('wojvnwvnw',req.params.id)
+    try{
+        let item = await Word.findById(req.params.id);
+        console.log(item)
+        
+        Word.find({}).sort('-createdAt').exec((err,showResult)=>{
+            res.status(200).json(showResult)
+        })
     }catch(err){
         res.status(400).json(err);
     }
