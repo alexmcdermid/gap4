@@ -3,37 +3,42 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.notes{
+
+.notes {
     margin-left: 4%;
     font-weight: bold;
     color: #cc9933;
 }
 
-.submit{
+.submit {
     margin-left: 65%;
     font-weight: bold;
     color: #cc9933;
 }
-.back{
+
+.back {
     margin-left: 2%;
 }
-.writings{
+
+.writings {
     margin-left: 5%;
 }
-textarea { 
+
+textarea {
     border: none;
     background-color: transparent;
     resize: none;
     outline: none;
-    padding-right:50%
-  }
-  textarea.title{
+    padding-right: 50%
+}
+
+textarea.title {
     text-align: justify;
     font-weight: bold;
     vertical-align: middle;
-    white-space: inherit;
+    white-space: normal;
 }
 
-textarea.sentence{
+textarea.sentence {
     padding-top: 1%;
 }

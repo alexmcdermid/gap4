@@ -3,36 +3,41 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.notes{
+
+.notes {
     margin-left: 4%;
     font-weight: bold;
     color: #cc9933;
 }
 
-.submit{
+.submit {
     margin-left: 65%;
     font-weight: bold;
     color: #cc9933;
 }
-.back{
+
+.back {
     margin-left: 2%;
 }
-.writings{
+
+.writings {
     margin-right: 120%;
 }
-textarea { 
+
+textarea {
     border: none;
     background-color: transparent;
     resize: none;
     outline: none;
-  }
-  textarea.title{
+}
+
+textarea.title {
     text-align: justify;
     font-weight: bold;
     padding-top: 12%;
     margin-right: 15%;
 }
 
-textarea.sentence{
+textarea.sentence {
     padding-top: 1%;
 }

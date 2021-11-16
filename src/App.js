@@ -14,8 +14,6 @@ import HomePage from '../src/pages/home'
 class App extends Component {
 
   render() {
-
-
     return (
       <div className="App">
         <br />
@@ -43,6 +41,7 @@ class App extends Component {
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>
+        
         {/* bottom navbar */}
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
@@ -52,7 +51,6 @@ class App extends Component {
             <Nav.Link href="#linkProfile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser} size="2x" />Profile</div></Nav.Link>
           </Container>
         </Navbar>
-
       </div>
     );
   }

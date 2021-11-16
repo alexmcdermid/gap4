@@ -2,6 +2,8 @@ import './NoteBook.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch, faTrashAlt, faEdit, faMicrophone } from "@fortawesome/free-solid-svg-icons";
+
+
 function NoteBook(props) {
     let todaysDate = (new Date()).toLocaleDateString('en-CA')
     return (
@@ -14,15 +16,12 @@ function NoteBook(props) {
             </div>
             {props.items.length > 0 ?
                 <div className='searched-items'>
-
                     {props.items.map(item => (
 
                         <div className='items' key={item._id}><Link id='item' to={'/notebook/update/' + item._id}>{item.title} </Link><br />
                             <span className="date">{todaysDate}</span>
                             <button type='submit' className="trash" onClick={() => { props.delete(item._id) }}> <FontAwesomeIcon icon={faTrashAlt} size="0.5x" color='rgb(24, 23, 23)' /></button><br /></div>
                     ))}
-
-
                 </div>
                 :
                 <div className='searched-items'>
@@ -31,26 +30,30 @@ function NoteBook(props) {
                         <button type='submit' id="trash" > <FontAwesomeIcon icon={faTrashAlt} size="0.5x" color='rgb(24, 23, 23)' /></button><br /></div>
                 </div>
             }
-            <div className='entity'>
-                {props.items.length > 0 ?
-                    <span className="entry">
-
-                        {props.items.length}Entry
-
-                        
-
-                    </span>
-                    :
+            {props.items.length > 0 ?
+                <div className='entity'>
+                    {props.items.length > 1 ?
+                        <span className="entry">
+                            {props.items.length} Entries
+                        </span>
+                        :
+                        <span className="entry">
+                            1 Entry
+                        </span>
+                    }
+                    <Link className="squareandpencil" to={'/notebook/add'}><FontAwesomeIcon icon={faEdit} size="0.5x" color='#cc9933' />
+                    </Link>
+                </div>
+                :
+                <div className='entity'>
                     <span className="entry">
                         0 Entries
                     </span>
-                }
-                <Link className="squareandpencil" to={'/notebook/add'}><FontAwesomeIcon icon={faEdit} size="0.5x" color='#cc9933' />
-                </Link>
-
-            </div>
-
+                    <Link className="squareandpencil" to={'/notebook/add'}><FontAwesomeIcon icon={faEdit} size="0.5x" color='#cc9933' />
+                    </Link>
+                </div>
+            }
         </div>
     )
-}
-export default NoteBook;
+
+} export default NoteBook;
