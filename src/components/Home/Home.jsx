@@ -72,6 +72,7 @@ class HomeComp extends Component {
 
     render() {
         return(
+
             <div className='searchPageWrapper'>
         <div className='topText'>RHYME TIME HOME</div>
         <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
