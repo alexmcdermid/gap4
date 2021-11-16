@@ -17,6 +17,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div className='topText'>RHYME TIME</div>
+
      
 
         <BrowserRouter>
