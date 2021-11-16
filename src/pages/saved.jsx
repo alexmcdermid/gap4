@@ -10,6 +10,7 @@ class Saved extends Component {
         data:null,
         alertDelete:false,
         deletedWord:null,
+        wordGroup: false,
     }
     handleDeleteAlertTime=()=>{
         setTimeout(()=>{
@@ -25,14 +26,22 @@ class Saved extends Component {
         try{
             await fetch(`api/saved/delete/${id}`)
             this.componentDidMount()
-            this.setState({alertDelete:true,deletedWord:word})
+            this.setState({alertDelete:true,deletedWord:word,wordGroup:true})
             this.handleDeleteAlertTime()
         } catch (err) {
             console.log('error deleting search word', err)
         }
     }
-    handleDeleteWord = (parentId,word,index) => {
+    handleDeleteWord = async (parentId,word,index) => {
         console.log(parentId,word,index)
+        try{
+            await fetch(`api/saved/delete/${parentId}/${index}`)
+            this.componentDidMount()
+            this.setState({alertDelete:true,deletedWord:word,wordGroup:false})
+            this.handleDeleteAlertTime()
+        } catch (err) {
+
+        }
     }
     async componentDidMount(){
         try{
@@ -50,10 +59,15 @@ class Saved extends Component {
     render() {
         return(
             <div className='savedPage'>
-            <div className='topText'>SAVES PAGE</div>
+            {this.state.wordGroup===false ?
             <Alert show={this.state.alertDelete} variant='success'>
             <Alert.Heading>Word '{this.state.deletedWord}' Deleted!</Alert.Heading>
             </Alert>
+            :
+            <Alert show={this.state.alertDelete} variant='success'>
+            <Alert.Heading>Word Group '{this.state.deletedWord}' Deleted!</Alert.Heading>
+            </Alert>
+            }
             <div className='savedPageResults'>
             {this.state.data != null ? 
             this.state.data.map((item,index)=>{

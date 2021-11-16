@@ -49,11 +49,18 @@ async function deleteWords(req,res){
 }
 
 async function deleteWord(req,res){
-    console.log('wojvnwvnw',req.params.id)
     try{
+        //find the data piece
         let item = await Word.findById(req.params.id);
-        console.log(item)
-        
+        console.log('data',item)
+        //get the array from data and splice the index - save to temp arr
+        let tempArr = item.selectedWord
+        console.log('temp arr:',tempArr)
+        tempArr.splice(req.params.index,1)
+        console.log('temp arr after splice', tempArr)
+        //find the data piece by id and replace with temp arr
+        await Word.findByIdAndUpdate({_id:req.params.id},{selectedWord:tempArr})
+        // then we find all and send back
         Word.find({}).sort('-createdAt').exec((err,showResult)=>{
             res.status(200).json(showResult)
         })
