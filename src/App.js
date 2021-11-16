@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import './App.css';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
-<<<<<<< HEAD
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch, faHeart, faEdit, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -10,15 +9,7 @@ import NoteBookAddPage from './pages/NoteBookPage/NoteBookAddPage';
 import NoteBookShowPage from './pages/NoteBookPage/NoteBookShowPage';
 import NoteBookEditPage from './pages/NoteBookPage/NoteBookEditPage';
 import HomePage from '../src/pages/home'
-=======
-import { Navbar,Container,Nav } from 'react-bootstrap';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
-
-import HomePage from './pages/home'
-import NoteBook from './pages/notebook';
 import Saved from './pages/saved';
->>>>>>> main
 
 
 class App extends Component {
