@@ -26,6 +26,9 @@ class App extends Component {
             <Route exact path='/' render={(props) => (
               <HomePage {...props} />
             )} />
+            <Route exact path='/saved' render={(props) => (
+              <Saved {...props} />
+            )} />
             <Route exact path='/notebook' render={(props) => (
               <NoteBookPage {...props} />
             )} />
