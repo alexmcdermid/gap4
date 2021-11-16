@@ -50,7 +50,7 @@ class Saved extends Component {
     render() {
         return(
             <div className='savedPage'>
-                Saved Page
+            <div className='topText'>SAVES PAGE</div>
             <Alert show={this.state.alertDelete} variant='success'>
             <Alert.Heading>Word '{this.state.deletedWord}' Deleted!</Alert.Heading>
             </Alert>
