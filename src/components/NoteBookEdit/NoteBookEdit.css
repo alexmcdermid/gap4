@@ -5,19 +5,23 @@
 }
 
 .notes {
-    margin-left: 4%;
+    padding-left: 18%;
     font-weight: bold;
     color: #cc9933;
 }
 
+#notes{
+    text-decoration: none;
+}
+
 .submit {
-    margin-left: 65%;
+    margin-left: 70%;
     font-weight: bold;
     color: #cc9933;
 }
 
 .back {
-    margin-left: 2%;
+    margin-left: 5%;
 }
 
 .writings {
@@ -29,6 +33,7 @@ textarea {
     background-color: transparent;
     resize: none;
     outline: none;
+    overflow: hidden;
 }
 
 textarea.title {

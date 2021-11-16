@@ -9,13 +9,13 @@ function NoteBookAdd(props) {
         <div >
             <div className='header-text'>
                 <Link to='/notebook'>
-                    <div class="back"><FontAwesomeIcon className="trash" icon={faAngleLeft} size="0.5x" color='#cc9933' /></div></Link>
-                <span class="notes">Notes</span>
-                <span class="submit" onClick={() => props.addWriting()}>Done</span>
+                    <div className="back"><FontAwesomeIcon className="trash" icon={faAngleLeft} size="2px" color='#cc9933' /></div></Link>
+                    <Link id = 'notes' to='/notebook'> <span className="notes">Notes</span></Link>
+                <span className="submit" onClick={() => props.addWriting()}>Done</span>
             </div><br />
             <div className='writings'>
-                <textarea className='title' rows='2' cols='39' name='title' value={props.title} onChange={(event) => props.handleChange(event)}></textarea>
-                <textarea type='description' className='sentence' name="sentence" value={props.sentence} onChange={(event) => props.handleChange(event)} cols="40" rows="50" wrap='hard'></textarea>
+                <textarea className='title' name='title' value={props.title} onChange={(event) => props.handleChange(event)}></textarea>
+                <textarea type='description' className='sentence' name="sentence" value={props.sentence} onChange={(event) => props.handleChange(event)} rows ='10' ></textarea>
             </div>
         </div>
     )

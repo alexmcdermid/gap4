@@ -8,14 +8,15 @@ function NoteBookEdit(props) {
         <div class="writing-folder">
             <div >
                 <div className='header-text'>
+
                     <Link to='/notebook'>
-                        <div class="back"><FontAwesomeIcon className="trash" icon={faAngleLeft} size="0.5x" color='#cc9933' /></div></Link>
-                    <span class="notes">Notes</span>
-                    <span class="submit" onClick={() => props.editWriting()}>Done</span>
+                        <div className="back"><FontAwesomeIcon className="trash" icon={faAngleLeft} size="0.5x" color='#cc9933' /></div></Link>
+                        <Link id = 'notes' to='/notebook'> <span className="notes">Notes</span></Link>
+                    <span className="submit" onClick={() => props.editWriting()}>Done</span>
                 </div><br />
                 <div className='writings'>
-                    <textarea className='title' rows='2' cols='35' name='title' value={props.title} onChange={(event) => props.onEditChange(event)}></textarea>
-                    <textarea className='sentence' type='description' name="sentence" value={props.sentence} onChange={(event) => props.onEditChange(event)} cols="35"  wrap="hard"  ></textarea>
+                    <textarea className='title'  name='title' value={props.title} onChange={(event) => props.onEditChange(event)}></textarea>
+                    <textarea className='sentence' type='description' name="sentence" value={props.sentence} onChange={(event) => props.onEditChange(event)} rows ='10'  ></textarea>
                 </div>
             </div>
         </div>
