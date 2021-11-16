@@ -1,0 +1,38 @@
+.header-text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.notes{
+    margin-left: 4%;
+    font-weight: bold;
+    color: #cc9933;
+}
+
+.submit{
+    margin-left: 65%;
+    font-weight: bold;
+    color: #cc9933;
+}
+.back{
+    margin-left: 2%;
+}
+.writings{
+    margin-right: 120%;
+}
+textarea { 
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+  }
+  textarea.title{
+    text-align: justify;
+    font-weight: bold;
+    padding-top: 12%;
+    margin-right: 15%;
+}
+
+textarea.sentence{
+    padding-top: 1%;
+}

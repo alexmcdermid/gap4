@@ -3,8 +3,6 @@ import NoteBook from "../../components/NoteBook/NoteBook.jsx";
 
 class NoteBookPage extends React.Component{
     state = {
-        title : [],
-        sentence : [],
         items : []
     }
 
@@ -20,10 +18,26 @@ class NoteBookPage extends React.Component{
             console.log("Error:" , err)
         }
     }
+    delete = async(id)=>{
+        try{
+            let  fetchResponse = await fetch('/api/notebook/delete/'+id,{
+                method:'DELETE',
+                headers:{"Content-Type":"application/json"}
+            })
+            let serverResponse = await fetchResponse.json();
+            console.log("Success:" , serverResponse);
+            this.setState({
+                items:serverResponse
+            })
+        }catch(err){
+            console.log("Error:",err)
+        }
+    }
     render(){
         return(
             <>
-            <NoteBook items = {this.state.items}/>
+            <NoteBook items = {this.state.items}
+            delete = {this.delete}/>
             </>
         );
     }
