@@ -77,10 +77,7 @@ class HomeComp extends Component {
         <div className='topText'>RHYME TIME HOME</div>
         <br/>
         <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
-        <br/>
         {this.state.filters==null ? <></>:<>Filter: {this.state.filters}</> }
-        <br/>
-        <div className="welcomeUser">Welcome userX</div>
         {/* saved alert */}
        <Alert show={this.state.alertSave} variant='success'>
          <Alert.Heading>Words Saved!</Alert.Heading>
