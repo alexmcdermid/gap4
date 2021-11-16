@@ -1,12 +1,19 @@
 import { Component } from 'react';
 import '../App';
 import '../App.css'
+import {Alert} from 'react-bootstrap'
 
 
 class Saved extends Component {
     state = {
-        data:null
+        data:null,
+        alertDelete:false
     }
+    handleDeleteAlertTime=()=>{
+        setTimeout(()=>{
+          this.setState({alertDelete:false})
+        },3000)
+      }
     routeChange=()=>{
         let path = ''
         this.props.history.push(path)
@@ -16,6 +23,8 @@ class Saved extends Component {
         try{
             await fetch(`api/saved/delete/${id}`)
             this.componentDidMount()
+            this.setState({alertDelete:true})
+            this.handleDeleteAlertTime()
         } catch (err) {
             console.log('error deleting search word', err)
         }
@@ -40,6 +49,9 @@ class Saved extends Component {
         return(
             <div className='savedPage'>
                 Saved Page
+            <Alert show={this.state.alertDelete} variant='success'>
+            <Alert.Heading>Words Deleted!</Alert.Heading>
+            </Alert>
             <div className='savedPageResults'>
             {this.state.data != null ? 
             this.state.data.map((item,index)=>{
