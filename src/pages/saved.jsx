@@ -31,8 +31,16 @@ class Saved extends Component {
             console.log('error deleting search word', err)
         }
     }
-    handleDeleteWord = (parentId,word,index) => {
+    handleDeleteWord = async (parentId,word,index) => {
         console.log(parentId,word,index)
+        try{
+            await fetch(`api/saved/delete/${parentId}/${index}`)
+            this.componentDidMount()
+            this.setState({alertDelete:true,deletedWord:word})
+            this.handleDeleteAlertTime()
+        } catch (err) {
+
+        }
     }
     async componentDidMount(){
         try{
