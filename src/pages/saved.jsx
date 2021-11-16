@@ -2,12 +2,13 @@ import { Component } from 'react';
 import '../App';
 import '../App.css'
 import {Alert} from 'react-bootstrap'
+import Word from '../components/Word/Word'
 
 
 class Saved extends Component {
     state = {
         data:null,
-        alertDelete:false
+        alertDelete:false,
     }
     handleDeleteAlertTime=()=>{
         setTimeout(()=>{
@@ -29,8 +30,8 @@ class Saved extends Component {
             console.log('error deleting search word', err)
         }
     }
-    handleDeleteWord = () => {
-        console.log('handle delete word')
+    handleDeleteWord = (parentId,word,index) => {
+        console.log(parentId,word,index)
     }
     async componentDidMount(){
         try{
@@ -59,12 +60,12 @@ class Saved extends Component {
                     <div className='buttonLink'>{item.inputWord}</div>
                     <div className='date'>{item.createdAt}</div>
                     <button className='buttonLink' onClick={()=>{this.handleDeleteWordSearch(item._id)}}>Delete</button>
-                    </span><div className='savedWordsContainer'>{
-                    item.selectedWord.map((item,index)=>{
-                        return(<span className='savedWord' key={index}>
-                            <button className='buttonLink' onClick={()=>{this.handleDeleteWord()}}>{item}&nbsp;x</button></span>)})}
+                    </span><div className='savedWordsContainer'>
+                    <Word array={item.selectedWord} parentId={item._id} handleDeleteWord={this.handleDeleteWord}/>
+                    
                             <span className='inputWord' style={{backgroundColor:'red'}}>
-                                <button className='buttonLink' onClick={()=>{this.routeChange()}}>Add +</button></span>
+                                <button className='buttonLink' onClick={()=>{this.routeChange()}}>Add +</button>
+                                </span>
                             </div>
                     </div>)
             }) 
