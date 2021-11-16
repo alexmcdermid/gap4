@@ -4,7 +4,8 @@ module.exports = {
     create,
     show,
     update,
-    deleteItem
+    deleteItem,
+    detail
 }
 
 async function create(req,res){
@@ -41,7 +42,16 @@ async function update(req,res){
         item.save();
         res.status(200).json(item)
     }catch(err){
-        res.status(400).jason(err);
+        res.status(400).json(err);
+    }
+}
+
+async function detail(req,res){
+    try{
+        let detailItem  = await Sentence.findById(req.params.id);
+        res.status(200).json(detailItem)
+    }catch(err){
+        res.status(400).json(err)
     }
 }
 

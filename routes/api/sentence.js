@@ -3,6 +3,7 @@ const router = express.Router();
 const sentenceCtrl = require('../../controllers/sentence.js');
 
 router.get('/' , sentenceCtrl.show);
+router.get('/:id',sentenceCtrl.detail);
 router.post('/add' , sentenceCtrl.create);
 router.post('/update/:id',sentenceCtrl.update);
 router.delete('/delete/:id' , sentenceCtrl.deleteItem);
