@@ -15,7 +15,7 @@ function NoteBookEdit(props) {
                 </div><br />
                 <div className='writings'>
                     <textarea className='title' rows='2' cols='35' name='title' value={props.title} onChange={(event) => props.onEditChange(event)}></textarea>
-                    <textarea className='sentence' type='description' name="sentence" value={props.sentence} onChange={(event) => props.onEditChange(event)} cols="35" rows="50" wrap="hard"  ></textarea>
+                    <textarea className='sentence' type='description' name="sentence" value={props.sentence} onChange={(event) => props.onEditChange(event)} cols="35"  wrap="hard"  ></textarea>
                 </div>
             </div>
         </div>
