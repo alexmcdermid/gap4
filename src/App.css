@@ -180,6 +180,9 @@ button.mainSearch{
   padding-right: 2%;
   border-radius: 10px;
   height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .savedWordsContainer{

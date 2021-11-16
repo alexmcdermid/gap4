@@ -11,6 +11,18 @@ class Saved extends Component {
         let path = ''
         this.props.history.push(path)
     }
+    handleDeleteWordSearch = async (id) => {
+        console.log(id)
+        try{
+            await fetch(`api/saved/delete/${id}`)
+            this.componentDidMount()
+        } catch (err) {
+            console.log('error deleting search word', err)
+        }
+    }
+    handleDeleteWord = () => {
+        console.log('handle delete word')
+    }
     async componentDidMount(){
         try{
             let response = await fetch('/api/saved')
@@ -32,11 +44,13 @@ class Saved extends Component {
             {this.state.data != null ? 
             this.state.data.map((item,index)=>{
                 return(<div key={index} className='savedResultsDiv'><span className='inputWord'>
-                    <button className='buttonLink'>{item.inputWord} x</button>
+                    <div className='buttonLink'>{item.inputWord}</div>
+                    <div className='date'>{item.createdAt}</div>
+                    <button className='buttonLink' onClick={()=>{this.handleDeleteWordSearch(item._id)}}>Delete</button>
                     </span><div className='savedWordsContainer'>{
                     item.selectedWord.map((item,index)=>{
                         return(<span className='savedWord' key={index}>
-                            <button className='buttonLink' >{item}&nbsp;x</button></span>)})}
+                            <button className='buttonLink' onClick={()=>{this.handleDeleteWord()}}>{item}&nbsp;x</button></span>)})}
                             <span className='inputWord' style={{backgroundColor:'red'}}>
                                 <button className='buttonLink' onClick={()=>{this.routeChange()}}>Add +</button></span>
                             </div>

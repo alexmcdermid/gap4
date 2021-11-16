@@ -34,10 +34,14 @@ async function show(req,res){
 }
 
 async function deleteWords(req,res){
+    console.log('wojvnwvnw',req.params.id)
     try{
         let deletedItem = await Word.findByIdAndRemove(req.params.id);
-        let items = await Word.find();
-        res.status(200).json(items);
+        // let items = await Word.find();
+        // res.status(200).json(items);
+        Word.find({}).sort('-createdAt').exec((err,showResult)=>{
+            res.status(200).json(showResult)
+        })
     }catch(err){
         res.status(400).json(err);
     }
