@@ -59,7 +59,6 @@ class Saved extends Component {
     render() {
         return(
             <div className='savedPage'>
-            <div className='topText'>SAVES PAGE</div>
             {this.state.wordGroup===false ?
             <Alert show={this.state.alertDelete} variant='success'>
             <Alert.Heading>Word '{this.state.deletedWord}' Deleted!</Alert.Heading>
