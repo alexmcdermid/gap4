@@ -3,6 +3,8 @@
   font-family: SFProText;
   background-color: #fff;
   color: #000000;
+  margin-top: 10%;
+
 }
 
 a.nav-link {
@@ -60,7 +62,9 @@ nav.navbar{
 .searchbarWrapper{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  margin-top: 10%;
+  justify-content: space-around;
+  margin-right: 5%;
 }
 
 
@@ -140,7 +144,7 @@ button.mainSearch{
 }
 
 .bigRedClearButton{
-  width: 85px;
+  width: 80px;
   height: 50px;
   background-color: #ff7f90;
   border: none;

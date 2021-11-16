@@ -17,14 +17,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <br />
-        <div className='topText'>RHYME TIME HOME</div>
-        <br />
+     
 
         <BrowserRouter>
           <Switch>
             <Route exact path='/' render={(props) => (
               <HomePage {...props} />
+            )} />
+            <Route exact path='/saved' render={(props) => (
+              <Saved {...props} />
             )} />
             <Route exact path='/notebook' render={(props) => (
               <NoteBookPage {...props} />
