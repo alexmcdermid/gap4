@@ -72,7 +72,9 @@ class HomeComp extends Component {
 
     render() {
         return(
-            <>
+
+            <div className='searchPageWrapper'>
+        <div className='topText'>RHYME TIME HOME</div>
         <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
         {this.state.filters==null ? <></>:<>Filter: {this.state.filters}</> }
         {/* saved alert */}
@@ -106,7 +108,7 @@ class HomeComp extends Component {
         </ToastContainer>
        : <div/>}
        
-            </>
+            </div>
         );
     }
 }
