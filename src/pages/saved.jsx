@@ -9,6 +9,7 @@ class Saved extends Component {
     state = {
         data:null,
         alertDelete:false,
+        deletedWord:null,
     }
     handleDeleteAlertTime=()=>{
         setTimeout(()=>{
@@ -19,12 +20,12 @@ class Saved extends Component {
         let path = ''
         this.props.history.push(path)
     }
-    handleDeleteWordSearch = async (id) => {
+    handleDeleteWordSearch = async (id,word) => {
         console.log(id)
         try{
             await fetch(`api/saved/delete/${id}`)
             this.componentDidMount()
-            this.setState({alertDelete:true})
+            this.setState({alertDelete:true,deletedWord:word})
             this.handleDeleteAlertTime()
         } catch (err) {
             console.log('error deleting search word', err)
@@ -51,7 +52,7 @@ class Saved extends Component {
             <div className='savedPage'>
                 Saved Page
             <Alert show={this.state.alertDelete} variant='success'>
-            <Alert.Heading>Words Deleted!</Alert.Heading>
+            <Alert.Heading>Word '{this.state.deletedWord}' Deleted!</Alert.Heading>
             </Alert>
             <div className='savedPageResults'>
             {this.state.data != null ? 
@@ -59,11 +60,11 @@ class Saved extends Component {
                 return(<div key={index} className='savedResultsDiv'><span className='inputWord'>
                     <div className='buttonLink'>{item.inputWord}</div>
                     <div className='date'>{item.createdAt}</div>
-                    <button className='buttonLink' onClick={()=>{this.handleDeleteWordSearch(item._id)}}>Delete</button>
+                    <button className='buttonLink' onClick={()=>{this.handleDeleteWordSearch(item._id,item.inputWord)}}>Delete</button>
                     </span><div className='savedWordsContainer'>
                     <Word array={item.selectedWord} parentId={item._id} handleDeleteWord={this.handleDeleteWord}/>
                     
-                            <span className='inputWord' style={{backgroundColor:'red'}}>
+                            <span className='inputWord' style={{backgroundColor:'#0b7dfd'}}>
                                 <button className='buttonLink' onClick={()=>{this.routeChange()}}>Add +</button>
                                 </span>
                             </div>
