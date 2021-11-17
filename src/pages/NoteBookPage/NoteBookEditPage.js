@@ -22,9 +22,10 @@ class NoteBookEditPage extends React.Component{
     }
     editWriting=async()=>{
         try{
+            let jwt = localStorage.getItem('token')
             let fetchResponse = await fetch('/api/notebook/update/'+this.props.match.params.id,{
                 method:"POST",
-                headers:{"Content-Type": 'application/json'},
+                headers:{"Content-Type": 'application/json','Authorization': 'Bearer ' + jwt},
                 body:JSON.stringify({
                     title:this.state.title,
                     sentence:this.state.sentence

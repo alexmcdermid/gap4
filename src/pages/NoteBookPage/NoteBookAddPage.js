@@ -14,9 +14,11 @@ class NoteBookAddPage extends React.Component{
 
     addWriting=async()=>{
         try{
+            let jwt = localStorage.getItem('token')
             let fetchResponse = await fetch('/api/notebook/add',{
                 method:'POST',
-                headers:{'Content-Type':'application/json'},
+                headers:{'Authorization': 'Bearer ' + jwt,
+            'Content-type':'application/json'},
                 body:JSON.stringify({
                     title:this.state.title,
                     sentence:this.state.sentence
