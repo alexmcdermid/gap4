@@ -3,8 +3,6 @@ import './AuthPage.css';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 
-
-
 export default class AuthPage extends React.Component {
   state = {
     showLogin: true,

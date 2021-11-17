@@ -12,7 +12,8 @@ async function create(req, res){
         console.log(req.body)
         let result = await Word.create({
             inputWord : req.body.search,
-            selectedWord : req.body.words
+            selectedWord : req.body.words,
+            user: req.user._id
         })
         console.log("database:" , result);
         res.status(200).json("added to the database")
@@ -24,7 +25,7 @@ async function create(req, res){
 
 async function show(req,res){
     try{
-        Word.find({}).sort('-createdAt').exec((err,showResult)=>{
+        Word.find({user: req.user._id}).sort('-createdAt').exec((err,showResult)=>{
             res.status(200).json(showResult)
         })
     }catch(err){
