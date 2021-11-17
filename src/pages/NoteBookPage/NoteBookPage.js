@@ -8,7 +8,9 @@ class NoteBookPage extends React.Component{
 
     async componentDidMount(){
         try{
-            let fetchResponse = await fetch('/api/notebook');
+            let jwt = localStorage.getItem('token')
+            let fetchResponse = await fetch('/api/notebook',
+            {headers: {'Authorization': 'Bearer ' + jwt}});
             let items = await fetchResponse.json();
             console.log(items)
             this.setState({

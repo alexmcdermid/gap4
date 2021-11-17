@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Search from '../Search/Search'
 import Result from '../Result/Result';
-import { Toast, ToastContainer, Alert } from 'react-bootstrap';
+import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container, Nav } from 'react-bootstrap';
 
 class HomeComp extends Component {
 
@@ -10,13 +10,30 @@ class HomeComp extends Component {
         data:null,
         filters:null,
         wordsToSave:[],
-        alertSave:false
+        alertSave:false,
+        maxSyllables:null,
+        dataBySyllables:[],
+        user:true,
+        pastSearchData:[],
       }
-      handSearchUpdateDate = (data,filter,search) => {
+      handSearchUpdateDate = (data,filter,search,maxSyllables) => {
+        //splitting the sorted data array into many arrays each representing an array of words of a certain syllable
+        let arrOfArr = []
+        let count = 1;
+        while (count<=maxSyllables) {
+          let tempArr = []
+          for(let i = 0; i<data.length; i++){
+            if (data[i].syllables == count) tempArr.push(data[i])
+          }
+          arrOfArr.push(tempArr)
+          count++
+        }
         this.setState({
           search:search,
           data:data,
           filters:filter,
+          maxSyllables:maxSyllables,
+          dataBySyllables:arrOfArr,
         })
          
       }
@@ -45,9 +62,10 @@ class HomeComp extends Component {
       handleSubmitSavedWords=async(event)=>{
         event.preventDefault();
         try{
+          let jwt = localStorage.getItem('token')
           let response = await fetch('/api/add', {
             method: 'POST',
-            headers: {"Content-Type": "application/json"},
+            headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt},
             body: JSON.stringify({search: this.state.search, words: this.state.wordsToSave, })
           })
           console.log(response)
@@ -70,10 +88,35 @@ class HomeComp extends Component {
         this.setState({wordsToSave:tempArr})
       }
 
+      routeChange=()=>{
+        let path = '/notebook'
+        console.log('trying to change route to ', path)
+        //this bit below is not working and needs to be changed
+        //this.props.history.push(path)
+    }
+      async componentDidMount(){
+        try{
+            let jwt = localStorage.getItem('token')
+            let response = await fetch('/api/saved',
+            {headers: {'Authorization': 'Bearer ' + jwt}});
+            let saves = await response.json()
+            console.log(saves)
+            this.setState({
+              pastSearchData:saves
+            })
+
+        } catch (err) {
+            console.log('error fetching saved words', err)
+        }
+    }
+
     render() {
         return(
 
-            <div className='searchPageWrapper'>
+        <div className='searchPageWrapper'>
+          <div className='topText'>
+            Rhyme Time Home
+          </div>
         <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
         {this.state.filters==null ? <></>:<>Filter: {this.state.filters}</> }
         {/* saved alert */}
@@ -81,11 +124,53 @@ class HomeComp extends Component {
          <Alert.Heading>Words Saved!</Alert.Heading>
          </Alert>
         {/* results */}
-        {this.state.data!=null ?  <><br/> Results: {this.state.data.length} Words
-        <div className='results'><Result data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave}/></div></> : <></>}
+        {this.state.data!=null ?  <div className='resultsContainter'>
+        <div className='resultsHeader'> Results: {this.state.data.length} Words
+        <br/> Tap words to add to saved list </div>
+        <div className='results'>
+          {/* mapping the sorted by syllables and split array of arrays */}
+          {this.state.dataBySyllables.map((item,index)=>{if (item.length>0) return(
+          <div key={index}>
+          <div className='syllableText'>Syllables: {index+1}</div>
+          <Result data={item} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave} maxSyllables={this.state.maxSyllables} />
+          </div>
+          )})}
+          </div></div> 
+          : 
+          // stuff on the page when no search
+          <div className='homeNoSearchWrapper'>
+            <div className='homeWelcomeText'>Welcome User, let's get to writing!</div>
+            <div className='homeGreyText'>Remember you can sort by Filters!</div>
+            <div className='yellowBoxesContainer'>
+              <div className='yellowBox'># of Syllables</div>
+              <div className='yellowBox'>Rhyme Score</div>
+            </div>
+            <div className='homeGreyText'>Your top saves</div>
+            <div className='topSearchesContainer'> 
+            {/* grab up to 10 of the most recent searches and display them if nothing is searched */}
+            {this.state.pastSearchData.map((item,index)=>{if  (index<10) return(<button className='wordToSaveToast' 
+            onClick={()=>{console.log('todo - on click search this item')}} 
+            key={index}>{item.inputWord}</button>)})} 
+            </div>
+              <Navbar  bg="light" expand="lg" fixed='bottom'>
+                <Container>
+                <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
+                <Toast>
+                <ToastBody>
+                <button className='bigRedStartWritingButton' onClick={()=>{this.routeChange()}}> Start Writing! </button>
+                </ToastBody>
+                </Toast>
+                </ToastContainer>
+                </Container>
+              </Navbar>
+          </div>}
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
-          <ToastContainer className="p-3" position='top-center'>
+        <Navbar  bg="light" expand="lg" fixed='bottom'>
+          <Container>
+          <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
+            {this.state.user===true ?
+            <>
           <Toast>
             <Toast.Body>
             <div>
@@ -104,9 +189,28 @@ class HomeComp extends Component {
             </div>
             </Toast.Body>
           </Toast>
+          </>
+          :
+          <Toast>
+            <ToastBody>
+            {this.state.wordsToSave.map((item,index)=>{return(
+            <span className='wordToSaveToast' key={index}>
+            <button className='buttonLink' 
+            onClick={()=>{this.handleRemoveSingleWordFromToSave(item)}}
+            >{item}&nbsp;&nbsp;x</button>
+             </span>
+            )})}
+            <br/>
+            <span className='saveClearButtonBar'>
+            <button className='bigRedLoginToSave' onClick={this.handleRedirectToLogin}>Login To Save</button>
+            </span>
+            </ToastBody>
+          </Toast>
+          }
         </ToastContainer>
-       : <div/>}
-       
+        </Container>
+        </Navbar>
+         : <div/>}
             </div>
         );
     }

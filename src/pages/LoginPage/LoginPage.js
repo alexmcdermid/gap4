@@ -1,3 +1,4 @@
+import Login from "../../components/Login/Login";
 import React, { Component } from 'react';
 // Add the Route named import
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -32,7 +33,11 @@ class LoginPage extends Component {
 
   render() {
     return (
+
       <main className="LoginPage">
+              {/* <>
+            <Login />
+            </> */}
         {/* this ternary operator asks: is there a user in state? */}
         {/* if yes, they can see our pages: neworder, etc. */}
         {/* if no(user is null), show them only the <AuthPage> */}

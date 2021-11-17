@@ -45,7 +45,9 @@ class Saved extends Component {
     }
     async componentDidMount(){
         try{
-            let response = await fetch('/api/saved')
+            let jwt = localStorage.getItem('token')
+            let response = await fetch('/api/saved',
+            {headers: {'Authorization': 'Bearer ' + jwt}});
             let saves = await response.json()
             console.log(saves)
             this.setState({
@@ -59,6 +61,9 @@ class Saved extends Component {
     render() {
         return(
             <div className='savedPage'>
+            <div className='topText'>
+            Rhyme Time Saves
+            </div>
             {this.state.wordGroup===false ?
             <Alert show={this.state.alertDelete} variant='success'>
             <Alert.Heading>Word '{this.state.deletedWord}' Deleted!</Alert.Heading>
