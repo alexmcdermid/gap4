@@ -12,14 +12,27 @@ class HomeComp extends Component {
         wordsToSave:[],
         alertSave:false,
         maxSyllables:null,
+        dataBySyllables:[],
         user:true
       }
       handSearchUpdateDate = (data,filter,search,maxSyllables) => {
+        //splitting the sorted data array into many arrays each representing an array of words of a certain syllable
+        let arrOfArr = []
+        let count = 1;
+        while (count<=maxSyllables) {
+          let tempArr = []
+          for(let i = 0; i<data.length; i++){
+            if (data[i].syllables == count) tempArr.push(data[i])
+          }
+          arrOfArr.push(tempArr)
+          count++
+        }
         this.setState({
           search:search,
           data:data,
           filters:filter,
           maxSyllables:maxSyllables,
+          dataBySyllables:arrOfArr,
         })
          
       }
@@ -90,9 +103,15 @@ class HomeComp extends Component {
         {this.state.data!=null ?  <div className='resultsContainter'>
         <div className='resultsHeader'> Results: {this.state.data.length} Words
         <br/> Tap words to add to saved list </div>
-        <div className='results'><Result 
-        data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave} maxSyllables={this.state.maxSyllables}
-        /></div></div> : <></>}
+        <div className='results'>
+          {/* mapping the sorted by syllables and split array of arrays */}
+          {this.state.dataBySyllables.map((item,index)=>{if (item.length>0) return(
+          <div key={index}>
+          <div className='syllableText'>Syllables: {index+1}</div>
+          <Result data={item} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave} maxSyllables={this.state.maxSyllables} />
+          </div>
+          )})}
+          </div></div> : <></>}
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
         <Navbar  bg="light" expand="lg" fixed='bottom'>
