@@ -17,7 +17,6 @@ class Search extends Component {
             search:e.target.value
         })
     }
-    // todo
     handleSyllableSort=(data)=>{
         let tempArr = data
         let returnArr = []
@@ -33,9 +32,6 @@ class Search extends Component {
         }
         currentSyllable++
         }   
-        console.log('max syllables in search', maxSyllables)
-        console.log(returnArr)
-       
         return returnArr
     }
     handleSearchSubmit = async () =>{
