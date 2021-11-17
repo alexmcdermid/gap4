@@ -8,18 +8,18 @@ import NoteBookPage from './pages/NoteBookPage/NoteBookPage';
 import NoteBookAddPage from './pages/NoteBookPage/NoteBookAddPage';
 import NoteBookEditPage from './pages/NoteBookPage/NoteBookEditPage';
 import HomePage from '../src/pages/home';
-import  Profile from './pages/ProfilePage/ProfilePage'
+import LoginPage from './pages/LoginPage/LoginPage';
 import Saved from './pages/saved';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-
+import SignupPage from './pages/SignupPage/SignupPage';
 
 class App extends Component {
 
   render() {
     return (
-      
+
       <div className="App">
-      <div className='topText'>RHYME TIME</div>
+        {/* <div className='topText'>RHYME TIME</div> */}
         <BrowserRouter>
           <Switch>
             <Route exact path='/' render={(props) => (
@@ -37,8 +37,14 @@ class App extends Component {
             <Route exact path='/notebook/update/:id' render={(props) => (
               <NoteBookEditPage {...props} />
             )} />
-             <Route exact path='/profile' render={(props) => (
+            <Route exact path='/profile' render={(props) => (
               <ProfilePage {...props} />
+            )} />
+            <Route exact path='/login' render={(props) => (
+              <LoginPage {...props} />
+            )} />
+            <Route exact path='/signup' render={(props) => (
+              <SignupPage {...props} />
             )} />
             {/* and in case nothing matches, we redirect: */}
             <Redirect to="/" />

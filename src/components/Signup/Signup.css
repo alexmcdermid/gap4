@@ -1,0 +1,58 @@
+.login{
+    background-color: #f0c24d;
+}
+.background{
+    height:200%;
+}
+.login-details{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50%;
+    border-top: 1px solid black;
+    border-radius: 5%;
+    height: 800px;
+    background-color:#fff;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    text-align: left;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.email-address , .password , .name{
+    font-weight: bold;
+}
+
+.email , .password-detail,.name{
+    margin-top: 5%;
+}
+
+.submit-login{
+    margin-top:10%;
+    border:none;
+    border-radius: 7%;
+    background-color: #f0c24d;
+    color: white;
+    font-weight: bold;
+    height:10%
+}
+
+.forgot-password{
+    margin-top: 10%;
+    text-align: center;
+    color: #388af0;
+}
+
+.password , .email-address{
+    margin-top: 5%;
+}
