@@ -23,7 +23,7 @@ async function create(req,res){
 
 async function show(req,res){
     try{
-        let showItems = await Sentence.find();
+        let showItems = await Sentence.find().sort('-createdAt');
         res.status(200).json(showItems)
     }catch(err){
         res.status(400).json(err);
@@ -58,7 +58,7 @@ async function detail(req,res){
 async function deleteItem(req,res){
     try{
         let deleteItem = await Sentence.findByIdAndRemove(req.params.id);
-        let items = await Sentence.find();
+        let items = await Sentence.find().sort('-createdAt');
         res.status(200).json(items);
     }catch(err){
         res.status(400).json(err)

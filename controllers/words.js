@@ -24,8 +24,6 @@ async function create(req, res){
 
 async function show(req,res){
     try{
-        // let showResult = await Word.find();
-        // res.status(200).json(showResult);
         Word.find({}).sort('-createdAt').exec((err,showResult)=>{
             res.status(200).json(showResult)
         })

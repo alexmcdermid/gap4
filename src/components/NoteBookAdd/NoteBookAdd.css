@@ -5,23 +5,31 @@
 }
 
 .notes {
-    margin-left: 4%;
+    margin-left: 66%;
     font-weight: bold;
     color: #cc9933;
+    
+}
+
+#notes{
+    text-decoration: none;
 }
 
 .submit {
-    margin-left: 65%;
+    margin-left: 70%;
     font-weight: bold;
     color: #cc9933;
 }
 
 .back {
-    margin-left: 2%;
+    margin-left: 5%;
 }
 
 .writings {
-    margin-left: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
 }
 
 textarea {
@@ -29,7 +37,7 @@ textarea {
     background-color: transparent;
     resize: none;
     outline: none;
-    padding-right: 50%
+    
 }
 
 textarea.title {
@@ -37,6 +45,7 @@ textarea.title {
     font-weight: bold;
     vertical-align: middle;
     white-space: normal;
+ 
 }
 
 textarea.sentence {

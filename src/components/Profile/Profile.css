@@ -1,0 +1,87 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%;
+}
+
+.name-details{
+    margin-left:10%;
+    text-align: left;
+}
+.general-profile{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 5%;
+    margin-inline-end: 8%;
+    margin-left: 4%;
+}
+.general{
+    color: rgb(156, 154, 154);
+    margin-bottom: 3%;
+}
+
+.edit-profile{
+    border-bottom: 0.5px solid rgb(156, 154, 154);
+}
+
+.history{
+    margin-top: 4%;
+    border-bottom: 0.5px solid rgb(156, 154, 154);
+}
+
+.language{
+    margin-top: 4%;
+    border-bottom: 0.5px solid rgb(156, 154, 154);
+}
+
+.legal-profile{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 5%;
+    margin-inline-end: 8%;
+    margin-left: 4%
+}
+
+.legal{
+    color: rgb(156, 154, 154);
+    margin-bottom: 3%;
+}
+
+.change-password{
+    border-bottom: 0.5px solid rgb(156, 154, 154);
+}
+
+.privacy{
+    margin-top: 4%;
+    border-bottom: 0.5px solid rgb(156, 154, 154);
+}
+
+.personal-profile{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 5%;
+    margin-inline-end: 8%;
+    margin-left: 4%
+}
+
+.personal{
+    color: rgb(156, 154, 154);
+    margin-bottom: 3%;
+}
+
+.report{
+    border-bottom: 0.5px solid rgb(156, 154, 154);
+}
+
+.logout{
+    margin-top: 4%;
+    border-bottom: 0.5px solid rgb(156, 154, 154);
+}
