@@ -93,7 +93,10 @@ class HomeComp extends Component {
     render() {
         return(
 
-            <div className='searchPageWrapper'>
+        <div className='searchPageWrapper'>
+          <div className='topText'>
+            Rhyme Time Home
+          </div>
         <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
         {this.state.filters==null ? <></>:<>Filter: {this.state.filters}</> }
         {/* saved alert */}
@@ -112,7 +115,21 @@ class HomeComp extends Component {
           <Result data={item} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave} maxSyllables={this.state.maxSyllables} />
           </div>
           )})}
-          </div></div> : <></>}
+          </div></div> 
+          : 
+          // stuff on the page when no search
+          <div className='homeNoSearchWrapper'>
+            <div className='homeWelcomeText'>Welcome User, let's get to writing!</div>
+            <div className='homeGreyText'>Remember you can sort by Filters!</div>
+            <div className='yellowBoxesContainer'>
+              <div className='yellowBox'># of Syllables</div>
+              <div className='yellowBox'>Rhyme Score</div>
+            </div>
+            <div className='homeGreyText'>Top searches</div>
+            <div className='bigRedStartWritingButtonContainer'>
+            <div className='bigRedStartWritingButton'> Start Writing! </div>
+            </div>
+          </div>}
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
         <Navbar  bg="light" expand="lg" fixed='bottom'>
