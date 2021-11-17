@@ -3,6 +3,7 @@
         text-align: left;
         font-weight: bold;
         font-family: SFPro;
+        margin-top: 10%;
     }
     .search-field {
         display: flex;

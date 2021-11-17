@@ -8,6 +8,9 @@ function NoteBook(props) {
     let todaysDate = (new Date()).toLocaleDateString('en-CA')
     return (
         <div class="writing-folder">
+            <div className='topText'>
+            Rhyme Time Notes
+            </div>
             <div className="notebook">Notebook</div>
             <div className="search-field">
                 <div className="microphone"><FontAwesomeIcon className="trash" icon={faMicrophone} size="0.5x" color='rgb(156, 154, 154)' /></div>

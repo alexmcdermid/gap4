@@ -93,7 +93,10 @@ class HomeComp extends Component {
     render() {
         return(
 
-            <div className='searchPageWrapper'>
+        <div className='searchPageWrapper'>
+          <div className='topText'>
+            Rhyme Time Home
+          </div>
         <Search handSearchUpdateDate={this.handSearchUpdateDate}/>
         {this.state.filters==null ? <></>:<>Filter: {this.state.filters}</> }
         {/* saved alert */}
