@@ -11,7 +11,8 @@ class Search extends Component {
         search:"",
         data:null,
         maxScoreData:null,
-        maxSyllables:null
+        maxSyllables:null,
+        filter:null
     }
     handleSearchChange = (e) => {
         this.setState({
@@ -51,13 +52,14 @@ class Search extends Component {
             for (let i = 0; i<tempArr.length; i++){
                 if (tempArr[i].score===300) returnArr.push(tempArr[i])
             }
-            this.props.handSearchUpdateDate(returnArr,'MaxScoreOnly',this.state.search)   
-            this.setState({maxScoreData:returnArr}) 
+            this.setState({maxScoreData:returnArr,filter:'MaxScoreOnly'}) 
+            returnArr = this.handleSyllableSort(returnArr)
+            this.props.handSearchUpdateDate(returnArr,'MaxScoreOnly',this.state.search,this.state.maxSyllables)   
         }
     }
     handleReset = () => {
         if (this.state.data!=null) {
-            this.props.handSearchUpdateDate(this.state.data,null,this.state.search)   
+            this.props.handSearchUpdateDate(this.state.data,null,this.state.search,this.state.maxSyllables)   
         }
     }
     render(){
