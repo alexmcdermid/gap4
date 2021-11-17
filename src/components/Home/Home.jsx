@@ -87,9 +87,13 @@ class HomeComp extends Component {
         }
         this.setState({wordsToSave:tempArr})
       }
-      handleRedirectToLogin=()=>{
 
-      }
+      routeChange=()=>{
+        let path = '/notebook'
+        console.log('trying to change route to ', path)
+        //this bit below is not working and needs to be changed
+        //this.props.history.push(path)
+    }
       async componentDidMount(){
         try{
             let jwt = localStorage.getItem('token')
@@ -141,15 +145,21 @@ class HomeComp extends Component {
               <div className='yellowBox'># of Syllables</div>
               <div className='yellowBox'>Rhyme Score</div>
             </div>
-            <div className='homeGreyText'>Top saves</div>
+            <div className='homeGreyText'>Your top saves</div>
             <div className='topSearchesContainer'> 
             {/* grab up to 10 of the most recent searches and display them if nothing is searched */}
-            {this.state.pastSearchData.map((item,index)=>{if  (index<10) return(<div className='wordToSaveToast' key={index}>{item.inputWord}</div>)})} 
+            {this.state.pastSearchData.map((item,index)=>{if  (index<10) return(<button className='wordToSaveToast' 
+            onClick={()=>{console.log('todo - on click search this item')}} 
+            key={index}>{item.inputWord}</button>)})} 
             </div>
               <Navbar  bg="light" expand="lg" fixed='bottom'>
                 <Container>
                 <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
-                <div className='bigRedStartWritingButton'> Start Writing! </div>
+                <Toast>
+                <ToastBody>
+                <button className='bigRedStartWritingButton' onClick={()=>{this.routeChange()}}> Start Writing! </button>
+                </ToastBody>
+                </Toast>
                 </ToastContainer>
                 </Container>
               </Navbar>
