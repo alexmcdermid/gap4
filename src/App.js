@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
@@ -50,6 +50,7 @@ class App extends Component {
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>
+      
 
         {/* bottom navbar */}
         <Navbar bg="light" expand="lg" fixed='bottom'>
