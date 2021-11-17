@@ -19,8 +19,24 @@ class Search extends Component {
     }
     // todo
     handleSyllableSort=(data)=>{
-
-        return data
+        let tempArr = data
+        let returnArr = []
+        let maxSyllables = 1;
+        let currentSyllable = 1;
+       
+        while (currentSyllable<=maxSyllables) {
+        for (let i = 0; i<tempArr.length; i++){
+            //find and set max syllable in search
+            if (maxSyllables < tempArr[i].syllables) maxSyllables = tempArr[i].syllables
+            //add syllables to return arr in order
+            if (tempArr[i].syllables == currentSyllable) returnArr.push(tempArr[i])
+        }
+        currentSyllable++
+        }   
+        console.log('max syllables in search', maxSyllables)
+        console.log(returnArr)
+       
+        return returnArr
     }
     handleSearchSubmit = async () =>{
         const data = await getRhymes(this.state.search)
