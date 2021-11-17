@@ -293,18 +293,18 @@ button.mainSearch{
   background-color: #f0c24d;
 }
 
-.bigRedStartWritingButtonContainer{
-  display: flex;
-  justify-content: center;
-  height: 50px;
-}
 
 .bigRedStartWritingButton{
-  width: 85%;
-  height: inherit;
+  font-size: 20px;
+  width: 277px;
+  height: 50px;
   background-color: #ff7f90;
   color: white;
   border: none;
   border-radius: 10px;
-  padding-top: 4%;
+  padding-top: 3%;
+}
+
+.topSearchesContainer{
+  display: flex;
 }
