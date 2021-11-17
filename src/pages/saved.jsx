@@ -63,7 +63,7 @@ class Saved extends Component {
             <div className='savedPage'>
             <div className='topText'>
             Rhyme Time Saves
-          </div>
+            </div>
             {this.state.wordGroup===false ?
             <Alert show={this.state.alertDelete} variant='success'>
             <Alert.Heading>Word '{this.state.deletedWord}' Deleted!</Alert.Heading>

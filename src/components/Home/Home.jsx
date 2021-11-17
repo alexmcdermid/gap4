@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Search from '../Search/Search'
 import Result from '../Result/Result';
-import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container } from 'react-bootstrap';
+import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container, Nav } from 'react-bootstrap';
 
 class HomeComp extends Component {
 
@@ -13,7 +13,8 @@ class HomeComp extends Component {
         alertSave:false,
         maxSyllables:null,
         dataBySyllables:[],
-        user:true
+        user:true,
+        pastSearchData:[],
       }
       handSearchUpdateDate = (data,filter,search,maxSyllables) => {
         //splitting the sorted data array into many arrays each representing an array of words of a certain syllable
@@ -86,9 +87,28 @@ class HomeComp extends Component {
         }
         this.setState({wordsToSave:tempArr})
       }
-      handleRedirectToLogin=()=>{
 
-      }
+      routeChange=()=>{
+        let path = '/notebook'
+        console.log('trying to change route to ', path)
+        //this bit below is not working and needs to be changed
+        //this.props.history.push(path)
+    }
+      async componentDidMount(){
+        try{
+            let jwt = localStorage.getItem('token')
+            let response = await fetch('/api/saved',
+            {headers: {'Authorization': 'Bearer ' + jwt}});
+            let saves = await response.json()
+            console.log(saves)
+            this.setState({
+              pastSearchData:saves
+            })
+
+        } catch (err) {
+            console.log('error fetching saved words', err)
+        }
+    }
 
     render() {
         return(
@@ -125,10 +145,24 @@ class HomeComp extends Component {
               <div className='yellowBox'># of Syllables</div>
               <div className='yellowBox'>Rhyme Score</div>
             </div>
-            <div className='homeGreyText'>Top searches</div>
-            <div className='bigRedStartWritingButtonContainer'>
-            <div className='bigRedStartWritingButton'> Start Writing! </div>
+            <div className='homeGreyText'>Your top saves</div>
+            <div className='topSearchesContainer'> 
+            {/* grab up to 10 of the most recent searches and display them if nothing is searched */}
+            {this.state.pastSearchData.map((item,index)=>{if  (index<10) return(<button className='wordToSaveToast' 
+            onClick={()=>{console.log('todo - on click search this item')}} 
+            key={index}>{item.inputWord}</button>)})} 
             </div>
+              <Navbar  bg="light" expand="lg" fixed='bottom'>
+                <Container>
+                <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
+                <Toast>
+                <ToastBody>
+                <button className='bigRedStartWritingButton' onClick={()=>{this.routeChange()}}> Start Writing! </button>
+                </ToastBody>
+                </Toast>
+                </ToastContainer>
+                </Container>
+              </Navbar>
           </div>}
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
