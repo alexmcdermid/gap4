@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage.jsx'
 import HomePage from '../home.jsx';
+import UserLogOut from '../../components/UserLogOut/UserLogOut.jsx'
 
 class LoginPage extends Component {
 
@@ -49,9 +50,10 @@ class LoginPage extends Component {
           :
           <AuthPage setUserInState={this.setUserInState}/>
         }
+        <UserLogOut></UserLogOut>
       </main>
     );
-
+    
 
 
     

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import './Profile.css';
+import UserLogOut from '../UserLogOut/UserLogOut.jsx'
 
 export default function Profile(props) {
     return (
@@ -26,6 +27,9 @@ export default function Profile(props) {
                 <span className='personal'>Personal</span>
                 <span className='report'>Report a Bug</span>
                 <span className='logout'>Logout</span>
+            </div>
+            <div>
+                <UserLogOut></UserLogOut>
             </div>
         </div>
     )
