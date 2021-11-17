@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
@@ -11,7 +11,7 @@ import HomePage from '../src/pages/home';
 import  Profile from './pages/ProfilePage/ProfilePage'
 import Saved from './pages/saved';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-
+import LoginPage from './pages/LoginPage/LoginPage.js'
 
 class App extends Component {
 
@@ -40,10 +40,14 @@ class App extends Component {
              <Route exact path='/profile' render={(props) => (
               <ProfilePage {...props} />
             )} />
+            <Route exact path='/login' render={(props) => (
+              <LoginPage {...props} />
+            )} />
             {/* and in case nothing matches, we redirect: */}
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>
+      
 
         {/* bottom navbar */}
         <Navbar bg="light" expand="lg" fixed='bottom'>
