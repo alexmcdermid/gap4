@@ -2,17 +2,39 @@ import { Component } from 'react';
 import './App.css';
 import Search from './components/Search/Search'
 import Result from './components/Result/Result';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Navbar,Container,Nav, Toast, ToastContainer } from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSearch,faHeart,faEdit,faUser} from "@fortawesome/free-solid-svg-icons"
-
+import AuthPage from './pages/AuthPage/AuthPage.jsx'
 
 class App extends Component {
   state = {
+    user:null,
     data:null,
     filters:null,
     wordsToSave:[]
   }
+
+  // when the page refreshes, check localStorage for the user jwt token
+  componentDidMount() {
+    let token = localStorage.getItem('token')
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1])); // decode token
+      if (payload.exp < Date.now() / 1000) {  // Check if our token is expired, and remove if it is (standard/boilerplate)
+        localStorage.removeItem('token');
+        token = null;
+      } else { // token not expired! our user is still 'logged in'. Put them into state.
+        let userDoc = payload.user // grab user details from token
+        this.setState({user: userDoc})      
+      }
+    }
+  }
+
+  setUserInState = (incomingUserData) => {
+    this.setState({ user: incomingUserData})
+  }
+
   handSearchUpdateDate = (data,filter) => {
     this.setState({
       data:data,
@@ -44,6 +66,20 @@ class App extends Component {
 
     return (
       <div className="App">
+        
+        { this.state.user ? 
+          <Switch>
+            <Route path='/' render={(props) => (
+              <Search {...props}/>
+            )}/>
+            {/* <Route path='/orders' render={(props) => (
+              <OrderHistoryPage {...props}/>
+            )}/> */}
+            <Redirect to="/" />
+          </Switch>
+          :
+          <AuthPage setUserInState={this.setUserInState}/>
+        }
         <br/>
         <div className='topText'>RHYME TIME HOME</div>
         <br/>
@@ -75,6 +111,8 @@ class App extends Component {
           </Toast>
         </ToastContainer>
        : <div/>}
+      
+      
         <Navbar bg="light" expand="lg" fixed='bottom'>
           <Container fluid>
           <Nav.Link href="#linkSearch"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x"/>Search</div></Nav.Link>
