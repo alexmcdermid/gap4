@@ -110,6 +110,19 @@ button.mainSearch{
   color: #000000;
 }
 
+.syllableText{
+  text-align: left;
+  font-family: SFPro;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: #000;
+
+}
+
 .resultsHeader{
   font-family: arial, sans-serif;
   color: black;

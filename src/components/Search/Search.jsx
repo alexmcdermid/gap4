@@ -10,7 +10,8 @@ class Search extends Component {
     state={
         search:"",
         data:null,
-        maxScoreData:null
+        maxScoreData:null,
+        maxSyllables:null
     }
     handleSearchChange = (e) => {
         this.setState({
@@ -32,6 +33,7 @@ class Search extends Component {
         }
         currentSyllable++
         }   
+        this.setState({maxSyllables:maxSyllables})
         return returnArr
     }
     handleSearchSubmit = async () =>{
@@ -40,7 +42,7 @@ class Search extends Component {
         this.setState({
             data:dataSorted
         })
-        this.props.handSearchUpdateDate(this.state.data,null,this.state.search)
+        this.props.handSearchUpdateDate(this.state.data,null,this.state.search,this.state.maxSyllables)
     }
     handleFilterMaxScore = () => {
         if (this.state.data!=null) {

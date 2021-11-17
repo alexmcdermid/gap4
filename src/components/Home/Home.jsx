@@ -11,13 +11,15 @@ class HomeComp extends Component {
         filters:null,
         wordsToSave:[],
         alertSave:false,
+        maxSyllables:null,
         user:true
       }
-      handSearchUpdateDate = (data,filter,search) => {
+      handSearchUpdateDate = (data,filter,search,maxSyllables) => {
         this.setState({
           search:search,
           data:data,
           filters:filter,
+          maxSyllables:maxSyllables,
         })
          
       }
@@ -88,7 +90,9 @@ class HomeComp extends Component {
         {this.state.data!=null ?  <div className='resultsContainter'>
         <div className='resultsHeader'> Results: {this.state.data.length} Words
         <br/> Tap words to add to saved list </div>
-        <div className='results'><Result data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave}/></div></div> : <></>}
+        <div className='results'><Result 
+        data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave} maxSyllables={this.state.maxSyllables}
+        /></div></div> : <></>}
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
         <Navbar  bg="light" expand="lg" fixed='bottom'>
