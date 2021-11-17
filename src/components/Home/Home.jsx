@@ -2,6 +2,8 @@ import { Component } from 'react';
 import Search from '../Search/Search'
 import Result from '../Result/Result';
 import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container, Nav } from 'react-bootstrap';
+import jwt_decode from 'jwt-decode';
+
 
 class HomeComp extends Component {
 
@@ -15,6 +17,7 @@ class HomeComp extends Component {
         dataBySyllables:[],
         user:true,
         pastSearchData:[],
+        userName:null,
       }
       handSearchUpdateDate = (data,filter,search,maxSyllables) => {
         //splitting the sorted data array into many arrays each representing an array of words of a certain syllable
@@ -97,12 +100,15 @@ class HomeComp extends Component {
       async componentDidMount(){
         try{
             let jwt = localStorage.getItem('token')
+            //decode jwt to get username
+            const decoded = jwt_decode(jwt); 
             let response = await fetch('/api/saved',
             {headers: {'Authorization': 'Bearer ' + jwt}});
             let saves = await response.json()
             console.log(saves)
             this.setState({
-              pastSearchData:saves
+              pastSearchData:saves,
+              userName:decoded.user.name
             })
 
         } catch (err) {
@@ -139,7 +145,7 @@ class HomeComp extends Component {
           : 
           // stuff on the page when no search
           <div className='homeNoSearchWrapper'>
-            <div className='homeWelcomeText'>Welcome User, let's get to writing!</div>
+            <div className='homeWelcomeText'>Welcome {this.state.userName}, let's get to writing!</div>
             <div className='homeGreyText'>Remember you can sort by Filters!</div>
             <div className='yellowBoxesContainer'>
               <div className='yellowBox'># of Syllables</div>
