@@ -10,17 +10,31 @@ class Search extends Component {
     state={
         search:"",
         data:null,
-        maxScoreData:null
+        maxScoreData:null,
+        maxSyllables:null
     }
     handleSearchChange = (e) => {
         this.setState({
             search:e.target.value
         })
     }
-    // todo
     handleSyllableSort=(data)=>{
-
-        return data
+        let tempArr = data
+        let returnArr = []
+        let maxSyllables = 1;
+        let currentSyllable = 1;
+       
+        while (currentSyllable<=maxSyllables) {
+        for (let i = 0; i<tempArr.length; i++){
+            //find and set max syllable in search
+            if (maxSyllables < tempArr[i].syllables) maxSyllables = tempArr[i].syllables
+            //add syllables to return arr in order
+            if (tempArr[i].syllables == currentSyllable) returnArr.push(tempArr[i])
+        }
+        currentSyllable++
+        }   
+        this.setState({maxSyllables:maxSyllables})
+        return returnArr
     }
     handleSearchSubmit = async () =>{
         const data = await getRhymes(this.state.search)
@@ -28,7 +42,7 @@ class Search extends Component {
         this.setState({
             data:dataSorted
         })
-        this.props.handSearchUpdateDate(this.state.data,null,this.state.search)
+        this.props.handSearchUpdateDate(this.state.data,null,this.state.search,this.state.maxSyllables)
     }
     handleFilterMaxScore = () => {
         if (this.state.data!=null) {

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Search from '../Search/Search'
 import Result from '../Result/Result';
-import { Toast, ToastContainer, Alert } from 'react-bootstrap';
+import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container } from 'react-bootstrap';
 
 class HomeComp extends Component {
 
@@ -10,13 +10,16 @@ class HomeComp extends Component {
         data:null,
         filters:null,
         wordsToSave:[],
-        alertSave:false
+        alertSave:false,
+        maxSyllables:null,
+        user:true
       }
-      handSearchUpdateDate = (data,filter,search) => {
+      handSearchUpdateDate = (data,filter,search,maxSyllables) => {
         this.setState({
           search:search,
           data:data,
           filters:filter,
+          maxSyllables:maxSyllables,
         })
          
       }
@@ -69,6 +72,9 @@ class HomeComp extends Component {
         }
         this.setState({wordsToSave:tempArr})
       }
+      handleRedirectToLogin=()=>{
+
+      }
 
     render() {
         return(
@@ -81,11 +87,19 @@ class HomeComp extends Component {
          <Alert.Heading>Words Saved!</Alert.Heading>
          </Alert>
         {/* results */}
-        {this.state.data!=null ?  <><br/> Results: {this.state.data.length} Words
-        <div className='results'><Result data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave}/></div></> : <></>}
+        {this.state.data!=null ?  <div className='resultsContainter'>
+        <div className='resultsHeader'> Results: {this.state.data.length} Words
+        <br/> Tap words to add to saved list </div>
+        <div className='results'><Result 
+        data={this.state.data} handleWordSave={this.handleWordSave} wordsToSave={this.state.wordsToSave} maxSyllables={this.state.maxSyllables}
+        /></div></div> : <></>}
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
-          <ToastContainer className="p-3" position='top-center'>
+        <Navbar  bg="light" expand="lg" fixed='bottom'>
+          <Container>
+          <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
+            {this.state.user===true ?
+            <>
           <Toast>
             <Toast.Body>
             <div>
@@ -104,9 +118,28 @@ class HomeComp extends Component {
             </div>
             </Toast.Body>
           </Toast>
+          </>
+          :
+          <Toast>
+            <ToastBody>
+            {this.state.wordsToSave.map((item,index)=>{return(
+            <span className='wordToSaveToast' key={index}>
+            <button className='buttonLink' 
+            onClick={()=>{this.handleRemoveSingleWordFromToSave(item)}}
+            >{item}&nbsp;&nbsp;x</button>
+             </span>
+            )})}
+            <br/>
+            <span className='saveClearButtonBar'>
+            <button className='bigRedLoginToSave' onClick={this.handleRedirectToLogin}>Login To Save</button>
+            </span>
+            </ToastBody>
+          </Toast>
+          }
         </ToastContainer>
-       : <div/>}
-       
+        </Container>
+        </Navbar>
+         : <div/>}
             </div>
         );
     }
