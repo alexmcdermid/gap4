@@ -45,9 +45,10 @@ class HomeComp extends Component {
       handleSubmitSavedWords=async(event)=>{
         event.preventDefault();
         try{
+          let jwt = localStorage.getItem('token')
           let response = await fetch('/api/add', {
             method: 'POST',
-            headers: {"Content-Type": "application/json"},
+            headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt},
             body: JSON.stringify({search: this.state.search, words: this.state.wordsToSave, })
           })
           console.log(response)

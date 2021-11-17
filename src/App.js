@@ -8,49 +8,75 @@ import NoteBookPage from './pages/NoteBookPage/NoteBookPage';
 import NoteBookAddPage from './pages/NoteBookPage/NoteBookAddPage';
 import NoteBookEditPage from './pages/NoteBookPage/NoteBookEditPage';
 import HomePage from '../src/pages/home';
-import LoginPage from './pages/LoginPage/LoginPage';
+import AuthPage from './pages/AuthPage/AuthPage';
 import Saved from './pages/saved';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-import SignupPage from './pages/SignupPage/SignupPage';
+//  import SignupPage from './pages/SignupPage/SignupPage';
 
 class App extends Component {
+  state = {
+    user: null,
+  }
+
+  componentDidMount() {
+    let token = localStorage.getItem('token')
+    if (token) {
+      const payload = JSON.parse(window.atob(token.split('.')[1])); // decode token
+      if (payload.exp < Date.now() / 1000) {  // Check if our token is expired, and remove if it is (standard/boilerplate)
+        localStorage.removeItem('token');
+        token = null;
+      } else {
+        let userDoc = payload.user // grab user details from token
+        this.setState({ user: userDoc })
+      }
+    }
+  }
+
+  // a method to update user
+  setUserInState = (incomingUserData) => {
+    this.setState({ user: incomingUserData })
+  }
 
   render() {
     return (
 
       <div className="App">
         {/* <div className='topText'>RHYME TIME</div> */}
+
         <BrowserRouter>
-          <Switch>
-            <Route exact path='/' render={(props) => (
-              <HomePage {...props} />
-            )} />
-            <Route exact path='/saved' render={(props) => (
-              <Saved {...props} />
-            )} />
-            <Route exact path='/notebook' render={(props) => (
-              <NoteBookPage {...props} />
-            )} />
-            <Route exact path='/notebook/add' render={(props) => (
-              <NoteBookAddPage {...props} />
-            )} />
-            <Route exact path='/notebook/update/:id' render={(props) => (
-              <NoteBookEditPage {...props} />
-            )} />
-            <Route exact path='/profile' render={(props) => (
-              <ProfilePage {...props} />
-            )} />
-            <Route exact path='/login' render={(props) => (
-              <LoginPage {...props} />
-            )} />
-            <Route exact path='/signup' render={(props) => (
-              <SignupPage {...props} />
-            )} />
-            {/* and in case nothing matches, we redirect: */}
-            <Redirect to="/" />
-          </Switch>
+          {this.state.user ?
+            <Switch>
+              <Route exact path='/' render={(props) => (
+                <HomePage {...props} />
+              )} />
+
+              <Route exact path='/saved' render={(props) => (
+                <Saved {...props} />
+              )} />
+              <Route exact path='/notebook' render={(props) => (
+                <NoteBookPage {...props} />
+              )} />
+              <Route exact path='/notebook/add' render={(props) => (
+                <NoteBookAddPage {...props} />
+              )} />
+              <Route exact path='/notebook/update/:id' render={(props) => (
+                <NoteBookEditPage {...props} />
+              )} />
+              <Route exact path='/profile' render={(props) => (
+                <ProfilePage {...props} />
+              )} />
+              <Route path='/login' render={(props) => (
+                <AuthPage {...props} setUserInState={this.setUserInState} />
+              )} />
+
+              {/* and in case nothing matches, we redirect: */}
+              <Redirect to="/" />
+            </Switch>
+            :
+            <AuthPage setUserInState={this.setUserInState} />
+          }
         </BrowserRouter>
-      
+
 
         {/* bottom navbar */}
         <Navbar bg="light" expand="lg" fixed='bottom'>

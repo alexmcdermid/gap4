@@ -34,9 +34,9 @@ class LoginPage extends Component {
     return (
 
       <main className="LoginPage">
-              <>
+              {/* <>
             <Login />
-            </>
+            </> */}
         {/* this ternary operator asks: is there a user in state? */}
         {/* if yes, they can see our pages: neworder, etc. */}
         {/* if no(user is null), show them only the <AuthPage> */}

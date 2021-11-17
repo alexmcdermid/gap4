@@ -45,7 +45,9 @@ class Saved extends Component {
     }
     async componentDidMount(){
         try{
-            let response = await fetch('/api/saved')
+            let jwt = localStorage.getItem('token')
+            let response = await fetch('/api/saved',
+            {headers: {'Authorization': 'Bearer ' + jwt}});
             let saves = await response.json()
             console.log(saves)
             this.setState({

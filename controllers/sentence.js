@@ -9,10 +9,12 @@ module.exports = {
 }
 
 async function create(req,res){
+    console.log(req.user)
     try{
         let result = await Sentence.create({
             title:req.body.title,
-            sentence:req.body.sentence
+            sentence:req.body.sentence,
+            user: req.user._id
         })
         console.log("sentence-DB:" , result);
         res.status(200).json("added to the DB");
@@ -23,7 +25,7 @@ async function create(req,res){
 
 async function show(req,res){
     try{
-        let showItems = await Sentence.find().sort('-createdAt');
+        let showItems = await Sentence.find({user: req.user._id}).sort('-createdAt');
         res.status(200).json(showItems)
     }catch(err){
         res.status(400).json(err);
@@ -37,7 +39,8 @@ async function update(req,res){
             res.status(400).send("data not found");
         }else{
             item.title=req.body.title,
-            item.sentence=req.body.sentence
+            item.sentence=req.body.sentence,
+            item.user=req.user._id
         }
         item.save();
         res.status(200).json(item)
