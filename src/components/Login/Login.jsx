@@ -7,7 +7,7 @@ export default function Login(props) {
     return (
         <div className="login">
             <div className = 'background'style={{backgroundImage: "url(" + Background + ")"}} >
-                <div >Hello</div>
+                <div className='topTextLogin'>Rhyme Time Login</div>
             </div>
                 <div className='login-details'>
                     <span className='title'>Login</span>
