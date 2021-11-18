@@ -9,6 +9,7 @@ Hopefully the words have jogged your imagination in which case you can write you
 
 ![screenshot](public/images/LogoutHome page.png)
 ![screenshot](public/images/LoggedinHomepage.png)
+![screenshot](public/images/Capture.PNG)
 
 Broadly, you can use this application in two roles:
 
@@ -16,6 +17,7 @@ Broadly, you can use this application in two roles:
 2. Non logged-in users can only use the rhyme finder.
 
 Note that this website is best viewed on mobile devices!
+This was developed with mobile first in mind so when viewing - please ** right click on the page and select 'inspect', then click the button in the top left of the inspector box as displayed in the linked photo ** 
 
 ### Technologies Used
 - HTML
@@ -24,8 +26,8 @@ Note that this website is best viewed on mobile devices!
 - Express Node.js
 - MongoDB
 -  REST APIs
-  -- https://rhymebrain.com/talk
--  Jason Web Token Authentication
+  -- https://rhymebrain.com/
+-  Json Web Token Authentication
  
 ### Getting Started:
 Website: https://rhymetimehome.herokuapp.com/
