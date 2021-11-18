@@ -99,13 +99,15 @@ class HomeComp extends Component {
       let jwt = localStorage.getItem('token')
       //decode jwt to get username
       const decoded = jwt_decode(jwt);
+      //had to do this avoid temp screen flash of other screen because the second setstate relies on async
+      this.setState({
+        userName: decoded.user.name
+      })
       let response = await fetch('/api/saved',
         { headers: { 'Authorization': 'Bearer ' + jwt } });
       let saves = await response.json()
-      console.log(saves)
       this.setState({
         pastSearchData: saves,
-        userName: decoded.user.name
       })
 
     } catch (err) {
