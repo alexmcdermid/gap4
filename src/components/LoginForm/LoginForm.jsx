@@ -38,6 +38,7 @@ export default class SignUpForm extends Component {
       console.log("SignupForm error", err)
       this.setState({ error: 'Sign Up Failed - Try Again' });
     }
+    
   }
 
   render() {

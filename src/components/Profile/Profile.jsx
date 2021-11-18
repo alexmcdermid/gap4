@@ -26,10 +26,7 @@ export default function Profile(props) {
             <div className='personal-profile'>
                 <span className='personal'>Personal</span>
                 <span className='report'>Report a Bug</span>
-                <span className='logout'>Logout</span>
-            </div>
-            <div>
-                <UserLogOut></UserLogOut>
+                <span className='logout'><UserLogOut></UserLogOut></span>
             </div>
         </div>
     )
