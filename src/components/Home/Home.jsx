@@ -3,6 +3,7 @@ import Search from '../Search/Search'
 import Result from '../Result/Result';
 import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container, Nav } from 'react-bootstrap';
 import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
 
 
 class HomeComp extends Component {
@@ -18,6 +19,7 @@ class HomeComp extends Component {
     user: true,
     pastSearchData: [],
     userName: null,
+    update:false,
   }
   handSearchUpdateDate = (data, filter, search, maxSyllables) => {
     //splitting the sorted data array into many arrays each representing an array of words of a certain syllable
@@ -91,12 +93,7 @@ class HomeComp extends Component {
     this.setState({ wordsToSave: tempArr })
   }
 
-  routeChange = () => {
-    let path = '/notebook'
-    console.log('trying to change route to ', path)
-    //this bit below is not working and needs to be changed
-    //this.props.history.push(path)
-  }
+
   async componentDidMount() {
     try {
       let jwt = localStorage.getItem('token')
@@ -152,6 +149,8 @@ class HomeComp extends Component {
             
           </div></div>
           :
+          <>
+          {this.state.userName != null ? 
           // stuff on the page when no search
           <div className='homeNoSearchWrapper'>
             <div className='homeWelcomeText'>Welcome {this.state.userName}, let's get to writing!</div>
@@ -174,13 +173,49 @@ class HomeComp extends Component {
                 <ToastContainer className="p-3" position='bottom-center' style={{ marginBottom: '20%' }}>
                   <Toast>
                     <ToastBody>
-                      <button className='bigRedStartWritingButton' onClick={() => { this.routeChange() }}> Start Writing! </button>
+                      <div className='linkContainer'>
+                    <Link to={'/notebook'} className='redButtonLink' > Start Writing! </Link>
+                    </div>
                     </ToastBody>
                   </Toast>
                 </ToastContainer>
               </Container>
             </Navbar>
-          </div>}
+          </div>
+          :
+          //this is where the styling goes for no search no user
+          <div className='homePageNoUserContainer'>
+            <div className='homePageNoUserText'>
+              Create an account to write and save rhymes!
+            </div>
+            <div className='yellowBoxesContainer'>
+              <div className='yellowBox2'>
+                <div className='image'></div>
+                <Link to={'/notebook'} className='redButtonLink' > Notebook </Link>
+              </div>
+              <div className='yellowBox2'>
+              <div className='image'></div>
+              <Link to={'/saved'} className='redButtonLink' > Saved </Link>
+              </div>
+            </div>
+            <Navbar bg="light" expand="lg" fixed='bottom'>
+              <Container>
+                <ToastContainer className="p-3" position='bottom-center' style={{ marginBottom: '20%' }}>
+                  <Toast>
+                    <ToastBody>
+                    <div className='linkContainer'>
+                    <Link to={'/signup'} className='redButtonLink' > Create an Account Now </Link>
+                    </div>
+                    </ToastBody>
+                  </Toast>
+                </ToastContainer>
+              </Container>
+            </Navbar>
+          </div>
+          }
+          </>
+            
+          }
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
         <Navbar  bg="light" expand="lg" fixed='bottom'>
@@ -218,9 +253,9 @@ class HomeComp extends Component {
              </span>
             )})}
             <br/>
-            <span className='saveClearButtonBar'>
-            <button className='bigRedLoginToSave' onClick={this.handleRedirectToLogin}>Login To Save</button>
-            </span>
+            <div className='linkContainer'>
+            <Link to={'/login'} className='redButtonLink' >Login To Save</Link>
+            </div>
             </ToastBody>
           </Toast>
           }
