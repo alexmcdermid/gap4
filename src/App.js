@@ -78,6 +78,7 @@ class App extends Component {
               <Route path='/signup' render={(props) => (
                 <SignupPage {...props} setUserInState={this.setUserInState} />
               )} /> 
+
             </Switch>
           }
         </BrowserRouter>

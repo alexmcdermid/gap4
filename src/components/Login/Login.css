@@ -2,7 +2,8 @@
     background-color: #f0c24d;
 }
 .background{
-    height:200%;
+    width: auto;
+    height: 150px;
 }
 .login-details{
     display: flex;
@@ -55,4 +56,9 @@
 
 .password{
     margin-top: 5%;
+}
+
+.background{
+    width: auto;
+    height: 150px;
 }
