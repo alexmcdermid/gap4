@@ -8,14 +8,16 @@ import NoteBookPage from './pages/NoteBookPage/NoteBookPage';
 import NoteBookAddPage from './pages/NoteBookPage/NoteBookAddPage';
 import NoteBookEditPage from './pages/NoteBookPage/NoteBookEditPage';
 import HomePage from '../src/pages/home';
-import AuthPage from './pages/AuthPage/AuthPage';
+//import AuthPage from './pages/AuthPage/AuthPage';
 import Saved from './pages/saved';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-//  import SignupPage from './pages/SignupPage/SignupPage';
+ import SignupPage from './pages/SignupPage/SignupPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 class App extends Component {
   state = {
     user: null,
+    showLogin: true,
   }
 
   componentDidMount() {
@@ -64,15 +66,21 @@ class App extends Component {
               <Route exact path='/profile' render={(props) => (
                 <ProfilePage {...props} />
               )} />
-              <Route path='/login' render={(props) => (
-                <AuthPage {...props} setUserInState={this.setUserInState} />
-              )} />
 
               {/* and in case nothing matches, we redirect: */}
               <Redirect to="/" />
             </Switch>
             :
-            <AuthPage setUserInState={this.setUserInState} />
+
+            <Switch>
+                < Route path='/login' render={(props) => (
+                  <LoginPage {...props} setUserInState={this.setUserInState} />
+                )} />
+              
+              <Route path='/signup' render={(props) => (
+                <SignupPage {...props} setUserInState={this.setUserInState} />
+              )} /> 
+            </Switch>
           }
         </BrowserRouter>
 
