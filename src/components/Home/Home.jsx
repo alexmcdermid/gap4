@@ -203,11 +203,11 @@ class HomeComp extends Component {
             <div className='yellowBoxesContainer'>
               <div className='yellowBox2'>
                 <div className='image'></div>
-                <Link to={'/notebook'} className='redButtonLink' > Notebook </Link>
+                <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' > Notebook </Link>
               </div>
               <div className='yellowBox2'>
               <div className='image'></div>
-              <Link to={'/saved'} className='redButtonLink' > Saved </Link>
+              <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' > Saved </Link>
               </div>
             </div>
             <Navbar bg="light" expand="lg" fixed='bottom'>
@@ -216,7 +216,7 @@ class HomeComp extends Component {
                   <Toast>
                     <ToastBody>
                     <div className='linkContainer'>
-                    <Link to={'/signup'} className='redButtonLink' > Create an Account Now </Link>
+                    <Link  onClick={()=>{window.location.href = '/signup'}} className='redButtonLink' > Create an Account Now </Link>
                     </div>
                     </ToastBody>
                   </Toast>
@@ -266,7 +266,7 @@ class HomeComp extends Component {
             )})}
             <br/>
             <div className='linkContainer'>
-            <Link to={'/login'} className='redButtonLink' >Login To Save</Link>
+            <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' >Login To Save</Link>
             </div>
             </ToastBody>
           </Toast>
