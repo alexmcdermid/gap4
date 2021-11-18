@@ -175,7 +175,7 @@ class HomeComp extends Component {
         <Navbar  bg="light" expand="lg" fixed='bottom'>
           <Container>
           <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
-            {this.state.user===true ?
+            {this.state.userName!=null ?
             <>
           <Toast>
             <Toast.Body>
