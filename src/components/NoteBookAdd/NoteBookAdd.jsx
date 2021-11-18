@@ -7,6 +7,9 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 function NoteBookAdd(props) {
     return (
         <div >
+              <div className='topText'>
+            Rhyme Time Notes
+            </div>
             <div className='header-text'>
                 <Link to='/notebook'>
                     <div className="back"><FontAwesomeIcon className="trash" icon={faAngleLeft} size="2px" color='#cc9933' /></div></Link>

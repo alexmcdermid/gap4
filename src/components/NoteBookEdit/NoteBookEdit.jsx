@@ -6,6 +6,9 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 function NoteBookEdit(props) {
     return (
         <div class="writing-folder">
+                  <div className='topText'>
+            Rhyme Time Notes
+            </div>
             <div >
                 <div className='header-text'>
 

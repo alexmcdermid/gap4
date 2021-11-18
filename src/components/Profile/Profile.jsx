@@ -4,13 +4,14 @@ import './Profile.css';
 import UserLogOut from '../UserLogOut/UserLogOut.jsx'
 
 export default function Profile(props) {
+
     return (
         <div className="profile">
             <div className='details'>
                 <div className="image"><FontAwesomeIcon className="trash" icon={faUser} size="3x" color='#cc9933' /></div>
                 <div className="name-details">
-                    <span className='name'>Name</span><br />
-                    <span className='email'>email25@gmail.com</span></div>
+                    <span className='name'>{props.user}</span><br />
+                    <span className='email'>{props.email}</span></div>
             </div>
             <div className='general-profile'>
                 <span className='general'>General</span>
