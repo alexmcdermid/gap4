@@ -230,9 +230,9 @@ class HomeComp extends Component {
           }
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
-        <Navbar  bg="light" expand="lg" fixed='bottom'>
+        <Navbar  bg="light" expand="lg" fixed='top'>
           <Container>
-          <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
+          <ToastContainer className="p-3" position='top-center' >
             {this.state.userName!=null ?
             <>
           <Toast>
@@ -267,6 +267,7 @@ class HomeComp extends Component {
             <br/>
             <div className='linkContainer'>
             <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' >Login To Save</Link>
+            
             </div>
             </ToastBody>
           </Toast>

@@ -5,7 +5,7 @@ export default function Signup(props) {
     return (
         <div className="login">
             <div className = 'background'style={{backgroundImage: "url(" + Background + ")"}} >
-                <div >Hello</div>
+                <div className='topTextLogin'>Rhyme Time Signup</div>
             </div>
                 <div className='login-details'>
                     <span className='title'>Create an Account</span>
