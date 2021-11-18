@@ -309,3 +309,28 @@ button.mainSearch{
   flex-wrap: wrap;
 }
 
+.linkContainer{
+  background-color: #ff7f90;
+  height: 50px;
+  border-radius: 10px;
+  padding: 4%;
+}
+
+.redButtonLink{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  text-decoration: none;
+  font-family: SFPro;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}

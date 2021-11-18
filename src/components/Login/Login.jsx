@@ -1,5 +1,7 @@
 import Background from "../../img/background.png";
 import './Login.css';
+import { Toast, ToastContainer, ToastBody, Navbar, Container } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 export default function Login(props) {
     return (
@@ -21,6 +23,19 @@ export default function Login(props) {
                         </form>
                     </div>
                 </div>
+                <Navbar bg="light" expand="lg" fixed='bottom'>
+              <Container>
+                <ToastContainer className="p-3" position='bottom-center' style={{ marginBottom: '20%' }}>
+                  <Toast>
+                    <ToastBody>
+                        <div className='linkContainer'>
+                      <Link to={'/signup'} className='redButtonLink' > Create Account </Link>
+                      </div>
+                    </ToastBody>
+                  </Toast>
+                </ToastContainer>
+              </Container>
+            </Navbar>
            
         </div>
     )

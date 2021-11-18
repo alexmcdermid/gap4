@@ -3,6 +3,7 @@ import Search from '../Search/Search'
 import Result from '../Result/Result';
 import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container, Nav } from 'react-bootstrap';
 import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
 
 
 class HomeComp extends Component {
@@ -91,12 +92,7 @@ class HomeComp extends Component {
     this.setState({ wordsToSave: tempArr })
   }
 
-  routeChange = () => {
-    let path = '/notebook'
-    console.log('trying to change route to ', path)
-    //this bit below is not working and needs to be changed
-    //this.props.history.push(path)
-  }
+
   async componentDidMount() {
     try {
       let jwt = localStorage.getItem('token')
@@ -174,7 +170,9 @@ class HomeComp extends Component {
                 <ToastContainer className="p-3" position='bottom-center' style={{ marginBottom: '20%' }}>
                   <Toast>
                     <ToastBody>
-                      <button className='bigRedStartWritingButton' onClick={() => { this.routeChange() }}> Start Writing! </button>
+                      <div className='linkContainer'>
+                    <Link to={'/notebook'} className='redButtonLink' > Start Writing! </Link>
+                    </div>
                     </ToastBody>
                   </Toast>
                 </ToastContainer>
