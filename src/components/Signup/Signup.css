@@ -20,23 +20,26 @@
     margin-top: 5%;
 }
 
-.form{
+.signup-form{
     display: flex;
     flex-direction: column;
-    margin-top: 20%;
+    margin-top: 3%;
     text-align: left;
     margin-left: 15%;
     margin-right: 15%;
 }
 
-.email-address , .password , .name{
+.email-address , .password , .name , .confirm-password{
     font-weight: bold;
 }
 
-.email , .password-detail,.name{
+.email , .password-detail,.name-detail{
     margin-top: 5%;
 }
 
+.name-detail{
+    margin-top: 5%;
+}
 .submit-login{
     margin-top:10%;
     border:none;
@@ -53,6 +56,9 @@
     color: #388af0;
 }
 
-.password , .email-address{
+.password , .email-address ,.confirm-password{
+    margin-top: 5%;
+}
+.confirm{
     margin-top: 5%;
 }
