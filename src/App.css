@@ -306,4 +306,5 @@ button.mainSearch{
 
 .topSearchesContainer{
   display: flex;
+  flex-wrap: wrap;
 }
