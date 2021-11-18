@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: SFProText;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
   color: #000000;
   /* margin-top: 10%; */
@@ -47,7 +47,7 @@ nav.navbar{
 
 .topText{
   margin-top: 10%;
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -60,7 +60,7 @@ nav.navbar{
 
 .topTextLogin{
   padding-top: 10%;
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -127,14 +127,14 @@ button.mainSearch{
   border: none;
   padding: 0!important;
   /*optional*/
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   /*input has OS specific font-family*/
   color: #000000;
 }
 
 .syllableText{
   text-align: left;
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -146,7 +146,7 @@ button.mainSearch{
 }
 
 .resultsHeader{
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
   padding: 5%;
   padding-top: 6%;
@@ -268,7 +268,7 @@ button.mainSearch{
 }
 
 .homeWelcomeText{
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 28px;
   font-weight: bold;
   font-stretch: normal;
@@ -280,7 +280,7 @@ button.mainSearch{
 }
 
 .homeGreyText{
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
@@ -355,10 +355,9 @@ button.mainSearch{
   border: none;
   padding: 0!important;
   /*optional*/
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   /*input has OS specific font-family*/
   text-decoration: none;
-  font-family: SFPro;
   font-size: 20px;
   font-weight: 500;
   font-stretch: normal;
@@ -378,8 +377,8 @@ button.mainSearch{
 .homePageNoUserText{
   text-align: left;
   margin-bottom: 10%;
-  font-family: SFPro;
-  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
