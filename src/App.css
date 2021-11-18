@@ -7,6 +7,7 @@
 
 }
 
+
 a.nav-link {
   color: #1c1c1e !important;
 }
@@ -293,6 +294,19 @@ button.mainSearch{
   background-color: #f0c24d;
 }
 
+.yellowBox2{
+  width:  140px;
+  height: 160px;
+  flex-grow: 0;
+  padding: 27px 17px 36.8px 18px;
+  border-radius: 4px;
+  background-color: #f0c24d;
+  padding-top: 40%;
+}
+
+
+
+
 
 .bigRedStartWritingButton{
   font-size: 20px;
@@ -334,3 +348,23 @@ button.mainSearch{
   text-align: center;
   color: #fff;
 }
+
+.homePageNoUserContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+}
+
+.homePageNoUserText{
+  margin-bottom: 10%;
+  font-family: SFPro;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 0.23px;
+  color: #000;
+}
+
+
