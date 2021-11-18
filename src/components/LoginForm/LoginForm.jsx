@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Redirect } from 'react-router';
 
 export default class SignUpForm extends Component {
   state = {
@@ -33,11 +34,11 @@ export default class SignUpForm extends Component {
     
           const userDoc = JSON.parse(window.atob(token.split('.')[1])).user; // 5. Decode the token + put user document into state
           this.props.setUserInState(userDoc)
-
     } catch (err) {
       console.log("SignupForm error", err)
       this.setState({ error: 'Sign Up Failed - Try Again' });
     }
+    
   }
 
   render() {

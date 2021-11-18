@@ -43,7 +43,7 @@ class App extends Component {
         {/* <div className='topText'>RHYME TIME</div> */}
 
         <BrowserRouter>
-          {this.state.user ?
+          {/* {this.state.user ? */}
             <Switch>
               <Route exact path='/' render={(props) => (
                 <HomePage {...props} />
@@ -71,9 +71,9 @@ class App extends Component {
               {/* and in case nothing matches, we redirect: */}
               <Redirect to="/" />
             </Switch>
-            :
-            <AuthPage setUserInState={this.setUserInState} />
-          }
+            {/* // :
+            // <AuthPage setUserInState={this.setUserInState} />
+          // } */}
         </BrowserRouter>
 
 

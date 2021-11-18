@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage.jsx'
 import HomePage from '../home.jsx';
+import UserLogOut from '../../components/UserLogOut/UserLogOut.jsx'
 
 class LoginPage extends Component {
 
@@ -12,7 +13,7 @@ class LoginPage extends Component {
   }
 
   componentDidMount() {
-    let token = localStorage.getItem('token')
+    let token = localStorage.getItem('token') 
     if (token) {
       const payload = JSON.parse(window.atob(token.split('.')[1])); // decode token
       if (payload.exp < Date.now() / 1000) {  // Check if our token is expired, and remove if it is (standard/boilerplate)
@@ -54,9 +55,10 @@ class LoginPage extends Component {
           :
           <AuthPage setUserInState={this.setUserInState}/>
         }
+        
       </main>
     );
-
+    
 
 
     

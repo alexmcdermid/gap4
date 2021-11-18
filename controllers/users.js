@@ -6,7 +6,7 @@ const SALT_ROUNDS = 6; // // tell bcrypt how many times to randomize the generat
 
 module.exports = {
     create,
-    login
+    login,  
 };
 
 async function create(req,res) {
