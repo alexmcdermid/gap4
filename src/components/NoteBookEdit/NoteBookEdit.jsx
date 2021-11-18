@@ -15,7 +15,7 @@ function NoteBookEdit(props) {
                     <Link to='/notebook'>
                         <div className="back"><FontAwesomeIcon className="trash" icon={faAngleLeft} size="0.5x" color='#cc9933' /></div></Link>
                         <Link id = 'notes' to='/notebook'> <span className="notes">Notes</span></Link>
-                    <span className="submit" onClick={() => props.editWriting()}>Done</span>
+                    <span className="submit" onClick={() => props.editWriting()}>Update</span>
                 </div><br />
                 <div className='writings'>
                     <textarea className='title'  name='title' value={props.title} onChange={(event) => props.onEditChange(event)}></textarea>
