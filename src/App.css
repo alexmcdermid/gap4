@@ -191,6 +191,11 @@ button.mainSearch{
   border: none;
   border-radius: 10px;
   margin-right: 2%;
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+  color: white;
 }
 
 .bigRedLoginToSave {
@@ -199,7 +204,13 @@ button.mainSearch{
   background-color: #ff7f90;
   border: none;
   border-radius: 10px;
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+  color: white;
 }
+
 
 .bigRedClearButton{
   width: 80px;
@@ -207,6 +218,12 @@ button.mainSearch{
   background-color: #ff7f90;
   border: none;
   border-radius: 10px;
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+  color: white;
+  
 }
 
 .savedPage{
