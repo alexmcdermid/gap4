@@ -84,7 +84,7 @@ class App extends Component {
 
 
         {/* bottom navbar */}
-        <Navbar bg="light" expand="lg" fixed='bottom'>
+        <Navbar bg="light" expand="lg" fixed='bottom' >
           <Container fluid>
             <Nav.Link href="/"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x" />Search</div></Nav.Link>
             <Nav.Link href="/notebook"><div className='bottomNavElement'><div className='notebook'><FontAwesomeIcon icon={faEdit} size="2x" /></div>Notebook</div></Nav.Link>

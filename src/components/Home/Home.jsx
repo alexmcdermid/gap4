@@ -143,6 +143,13 @@ class HomeComp extends Component {
                 </div>
               )
             })}
+            {/* these brs are needed to keep results above navbar on scroll to bottom do not remove */}
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            
           </div></div>
           :
           // stuff on the page when no search
