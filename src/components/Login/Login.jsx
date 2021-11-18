@@ -15,10 +15,10 @@ export default function Login(props) {
                     <div className='form'onSubmit={(evt)=>props.handleSubmit(evt)}>
                     <form className='signupForm' autoComplete="off" >
                         <label className='email-address'>Email address</label>
-                        <input name='email' className='email' value={props.email} onChange={(evt)=>props.handleChange(evt)} required></input>
+                        <input name='email' className='email'  value={props.email} onChange={(evt)=>props.handleChange(evt)} required></input>
                         <label className='password'>Password</label>
-                        <input type = 'password'name='password' className='password-detail' value={props.password} onChange={(evt)=>props.handleChange(evt)} required ></input>
-                        <button className='submit-login' type='submit'>Log In</button>
+                        <input type = 'password' name='password'  className='password-detail'  value={props.password} onChange={(evt)=>props.handleChange(evt)} required ></input>
+                        <button className='submit-login' type='submit'>Log In</button><br/>
                         <span className='forgot-password'>Forgot Password</span>
                         </form>
                     </div>
