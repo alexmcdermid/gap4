@@ -185,6 +185,16 @@ class HomeComp extends Component {
           :
           //this is where the styling goes for no search no user
           <div className='homePageNoUserContainer'>
+             <div className='homePageNoUserText'>
+              Top recent searches
+            </div>
+            <div className='topSearchesContainer2'>
+              {['test','owl','ball','bridge','cake','door','code','design','orange'].map((item, index) => {
+                if (index < 10) return (<button className='wordToSaveToast'
+                  onClick={() => { console.log('todo - on click search this item') }}
+                  key={index}>{item}</button>)
+              })}
+            </div>
             <div className='homePageNoUserText'>
               Create an account to write and save rhymes!
             </div>
