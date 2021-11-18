@@ -323,6 +323,12 @@ button.mainSearch{
   flex-wrap: wrap;
 }
 
+.topSearchesContainer2{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10%;
+}
+
 .linkContainer{
   background-color: #ff7f90;
   height: 50px;
@@ -356,6 +362,7 @@ button.mainSearch{
 }
 
 .homePageNoUserText{
+  text-align: left;
   margin-bottom: 10%;
   font-family: SFPro;
   font-size: 15px;
