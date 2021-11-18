@@ -10,16 +10,16 @@ export default function Signup(props) {
                 <div className='login-details'>
                     <span className='title'>Create an Account</span>
                     <span className='sub-title'>Let's get started!</span>
-                    <div className='form'onSubmit={(evt)=>props.handleSubmit(evt)}>
+                    <div className='signup-form'onSubmit={(evt)=>props.handleSubmit(evt)}>
                     <form autoComplete="off">
-                    <label className='name'>Name</label>
-                        <input name='name' className='name'value={props.name} onChange={(evt)=>props.handleChange(evt)} required ></input>
+                    <label className='name'>Name</label><br/>
+                        <input name='name' className='name-detail'value={props.name} onChange={(evt)=>props.handleChange(evt)} required ></input>
                         <label className='email-address'>Email address</label>
                         <input name='email' className='email' value={props.email} onChange={(evt)=>props.handleChange(evt)} required></input>
                         <label className='password'>Password</label>
                         <input type = 'password' name='password' className='password-detail' value={props.password} onChange={(evt)=>props.handleChange(evt)} required></input>
-                        <label className='confirm-password'>Password</label>
-                        <input type="password" name="confirm" value={props.confirm} onChange={(evt)=>props.handleChange(evt)} required />
+                        <label className='confirm-password'>Confirm Password</label>
+                        <input type="password" name="confirm" className = 'confirm' value={props.confirm} onChange={(evt)=>props.handleChange(evt)} required />
                         <button className='submit-login' type='submit'>Create Account</button>
                     </form>
                     </div>

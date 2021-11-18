@@ -16,7 +16,7 @@ logOut = () =>{
   return (
     
       <div className='UserLogOut'>
-        <button onClick={this.logOut} className="btn-sm">LOG OUT</button>
+        <button className = 'userlogout'onClick={this.logOut} >Log Out</button>
       </div>
   );
   }

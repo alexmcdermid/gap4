@@ -1,11 +1,6 @@
 import Login from "../../components/Login/Login";
-import React, { Component } from 'react';
-// // Add the Route named import
-// import { Route, Switch, Redirect } from 'react-router-dom';
-// import AuthPage from '../AuthPage/AuthPage.jsx'
-// import HomePage from '../home.jsx';
-// Add the Route named import
-import UserLogOut from '../../components/UserLogOut/UserLogOut.jsx'
+import React from 'react';
+
 
 
 class LoginPage extends React.Component {
@@ -70,41 +65,5 @@ class LoginPage extends React.Component {
     );
   }
 }
-
 export default LoginPage;
 
-// class LoginPage extends Component {
-//   render() {
-//     return (
-
-//       <main className="LoginPage">
-//               {/* <>
-//             <Login />
-//             </> */}
-//         {/* this ternary operator asks: is there a user in state? */}
-//         {/* if yes, they can see our pages: neworder, etc. */}
-//         {/* if no(user is null), show them only the <AuthPage> */}
-//         { this.state.user ? 
-//           <Switch>
-//               {/* until I add logout functionality, comment out next lines */}
-//             {/* <Route path='/' render={(props) => (
-//               <HomePage {...props}/>
-//             )}/> */}
-//             <Route path='/login' render={(props) => (
-//               <AuthPage {...props}/>
-//             )}/>
-//             <Redirect to="/login" />
-//           </Switch>
-//           :
-//           <AuthPage setUserInState={this.setUserInState}/>
-//         }
-//       </main>
-//     );
-
-
-
-
-//   }
-// }
-
-// export default LoginPage;

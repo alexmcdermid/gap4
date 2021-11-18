@@ -15,8 +15,8 @@ export default function Login(props) {
                         <label className='email-address'>Email address</label>
                         <input name='email' className='email' value={props.email} onChange={(evt)=>props.handleChange(evt)} required></input>
                         <label className='password'>Password</label>
-                        <input name='password' className='password-detail'value={props.password} onChange={(evt)=>props.handleChange(evt)} required ></input>
-                        <button className='submit-login' type='submit'>Log In</button>
+                        <input type = 'password'name='password' className='password-detail' value={props.password} onChange={(evt)=>props.handleChange(evt)} required ></input>
+                        <button className='submit-login' type='submit'>Log In</button><br/>
                         <span className='forgot-password'>Forgot Password</span>
                         </form>
                     </div>
