@@ -13,6 +13,8 @@ import Saved from './pages/saved';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
  import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import Search from './components/Search/Search';
+import HomeComp from './components/Home/Home';
 
 class App extends Component {
   state = {
@@ -81,6 +83,10 @@ class App extends Component {
             </Switch>
           }
         </BrowserRouter>
+        {(this.state.user!=null || window.location.pathname != '/')  ? 
+        <></> 
+        : 
+        <><HomeComp></HomeComp></>}
 
 
         {/* bottom navbar */}

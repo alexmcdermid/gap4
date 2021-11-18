@@ -148,6 +148,8 @@ class HomeComp extends Component {
             
           </div></div>
           :
+          <>
+          {this.state.userName != null ? 
           // stuff on the page when no search
           <div className='homeNoSearchWrapper'>
             <div className='homeWelcomeText'>Welcome {this.state.userName}, let's get to writing!</div>
@@ -178,7 +180,31 @@ class HomeComp extends Component {
                 </ToastContainer>
               </Container>
             </Navbar>
-          </div>}
+          </div>
+          :
+          //this is where the styling goes for no search no user
+          <div>
+            <div>
+              Create an account to write and save rhymes!
+            </div>
+            <Navbar bg="light" expand="lg" fixed='bottom'>
+              <Container>
+                <ToastContainer className="p-3" position='bottom-center' style={{ marginBottom: '20%' }}>
+                  <Toast>
+                    <ToastBody>
+                      <div className='linkContainer'>
+                    <Link to={'/notebook'} className='redButtonLink' > Create an Account Now </Link>
+                    </div>
+                    </ToastBody>
+                  </Toast>
+                </ToastContainer>
+              </Container>
+            </Navbar>
+          </div>
+          }
+          </>
+            
+          }
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
         <Navbar  bg="light" expand="lg" fixed='bottom'>
@@ -217,7 +243,7 @@ class HomeComp extends Component {
             )})}
             <br/>
             <span className='saveClearButtonBar'>
-            <button className='bigRedLoginToSave' onClick={this.handleRedirectToLogin}>Login To Save</button>
+            <Link to={'/login'} className='bigRedLoginToSave' >Login To Save</Link>
             </span>
             </ToastBody>
           </Toast>
