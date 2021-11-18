@@ -175,59 +175,55 @@ class HomeComp extends Component {
             </Navbar>
           </div>}
         {/* toats */}
-        {this.state.wordsToSave.length > 0 ?
-          <Navbar bg="light" expand="lg" fixed='bottom'>
-            <Container>
-              <ToastContainer className="p-3" position='bottom-center' style={{ marginBottom: '20%' }}>
-                {this.state.user === true ?
-                  <>
-                    <Toast>
-                      <Toast.Body>
-                        <div>
-                          {this.state.wordsToSave.map((item, index) => {
-                            return (
-                              <span className='wordToSaveToast' key={index}>
-                                <button className='buttonLink'
-                                  onClick={() => { this.handleRemoveSingleWordFromToSave(item) }}
-                                >{item}&nbsp;&nbsp;x</button>
-                              </span>
-                            )
-                          })}
-                          <br />
-                          <span className='saveClearButtonBar'>
-                            <button className='bigRedSaveButton' onClick={this.handleSubmitSavedWords}>Save Selection</button>
-                            <button className='bigRedClearButton' onClick={this.handleClearAllSaveWords}>Clear</button>
-                          </span>
-                        </div>
-                      </Toast.Body>
-                    </Toast>
-                  </>
-                  :
-                  <Toast>
-                    <ToastBody>
-                      {this.state.wordsToSave.map((item, index) => {
-                        return (
-                          <span className='wordToSaveToast' key={index}>
-                            <button className='buttonLink'
-                              onClick={() => { this.handleRemoveSingleWordFromToSave(item) }}
-                            >{item}&nbsp;&nbsp;x</button>
-                          </span>
-                        )
-                      })}
-                      <br />
-                      <span className='saveClearButtonBar'>
-                        <button className='bigRedLoginToSave' onClick={this.handleRedirectToLogin}>Login To Save</button>
-                      </span>
-                    </ToastBody>
-                  </Toast>
-                }
-              </ToastContainer>
-            </Container>
-          </Navbar>
-          : <div />}
-      </div>
-    );
-  }
+        {this.state.wordsToSave.length > 0 ?  
+        <Navbar  bg="light" expand="lg" fixed='bottom'>
+          <Container>
+          <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
+            {this.state.userName!=null ?
+            <>
+          <Toast>
+            <Toast.Body>
+            <div>
+            {this.state.wordsToSave.map((item,index)=>{return(
+            <span className='wordToSaveToast' key={index}>
+            <button className='buttonLink' 
+            onClick={()=>{this.handleRemoveSingleWordFromToSave(item)}}
+            >{item}&nbsp;&nbsp;x</button>
+             </span>
+            )})}
+            <br/>
+            <span className='saveClearButtonBar'>
+            <button className='bigRedSaveButton' onClick={this.handleSubmitSavedWords}>Save Selection</button>
+            <button className='bigRedClearButton' onClick={this.handleClearAllSaveWords}>Clear</button>
+            </span>
+            </div>
+            </Toast.Body>
+          </Toast>
+          </>
+          :
+          <Toast>
+            <ToastBody>
+            {this.state.wordsToSave.map((item,index)=>{return(
+            <span className='wordToSaveToast' key={index}>
+            <button className='buttonLink' 
+            onClick={()=>{this.handleRemoveSingleWordFromToSave(item)}}
+            >{item}&nbsp;&nbsp;x</button>
+             </span>
+            )})}
+            <br/>
+            <span className='saveClearButtonBar'>
+            <button className='bigRedLoginToSave' onClick={this.handleRedirectToLogin}>Login To Save</button>
+            </span>
+            </ToastBody>
+          </Toast>
+          }
+        </ToastContainer>
+        </Container>
+        </Navbar>
+         : <div/>}
+            </div>
+        );
+    }
 }
 
 export default HomeComp;
