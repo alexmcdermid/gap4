@@ -36,6 +36,8 @@ a.nav-link {
   line-height: normal;
   letter-spacing: -0.24px;
 
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
 nav.navbar{
@@ -77,7 +79,8 @@ nav.navbar{
 }
 
 /* creating some padding on left side of notebook icon to center correctly */
-.notebook {
+.noteBook {
+  margin-top: none;
   margin-left: 12%;
 }
 

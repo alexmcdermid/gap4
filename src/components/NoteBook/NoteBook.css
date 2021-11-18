@@ -2,8 +2,9 @@
     .notebook {
         text-align: left;
         font-weight: bold;
-        font-family: SFPro;
+        font-family: Arial, Helvetica, sans-serif;
         margin-top: 10%;
+        margin-left: 5%;
     }
     .search-field {
         display: flex;
