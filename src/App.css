@@ -7,6 +7,7 @@
 
 }
 
+
 a.nav-link {
   color: #1c1c1e !important;
 }
@@ -293,6 +294,19 @@ button.mainSearch{
   background-color: #f0c24d;
 }
 
+.yellowBox2{
+  width:  140px;
+  height: 160px;
+  flex-grow: 0;
+  padding: 27px 17px 36.8px 18px;
+  border-radius: 4px;
+  background-color: #f0c24d;
+  padding-top: 40%;
+}
+
+
+
+
 
 .bigRedStartWritingButton{
   font-size: 20px;
@@ -308,3 +322,56 @@ button.mainSearch{
   display: flex;
   flex-wrap: wrap;
 }
+
+.topSearchesContainer2{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10%;
+}
+
+.linkContainer{
+  background-color: #ff7f90;
+  height: 50px;
+  border-radius: 10px;
+  padding: 4%;
+}
+
+.redButtonLink{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  text-decoration: none;
+  font-family: SFPro;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+
+.homePageNoUserContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+}
+
+.homePageNoUserText{
+  text-align: left;
+  margin-bottom: 10%;
+  font-family: SFPro;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 0.23px;
+  color: #000;
+}
+
+

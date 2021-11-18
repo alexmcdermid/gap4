@@ -10,9 +10,10 @@ export default function Signup(props) {
                 <div className='login-details'>
                     <span className='title'>Create an Account</span>
                     <span className='sub-title'>Let's get started!</span>
+                    <br/>
                     <div className='signup-form'onSubmit={(evt)=>props.handleSubmit(evt)}>
-                    <form autoComplete="off">
-                    <label className='name'>Name</label><br/>
+                    <form className='signupForm' autoComplete="off">
+                        <label className='name'>Name</label>
                         <input name='name' className='name-detail'value={props.name} onChange={(evt)=>props.handleChange(evt)} required ></input>
                         <label className='email-address'>Email address</label>
                         <input name='email' className='email' value={props.email} onChange={(evt)=>props.handleChange(evt)} required></input>

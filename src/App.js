@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSearch, faHeart, faEdit, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faHeart, faEdit, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import NoteBookPage from './pages/NoteBookPage/NoteBookPage';
 import NoteBookAddPage from './pages/NoteBookPage/NoteBookAddPage';
 import NoteBookEditPage from './pages/NoteBookPage/NoteBookEditPage';
@@ -13,6 +13,8 @@ import Saved from './pages/saved';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
  import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import Search from './components/Search/Search';
+import HomeComp from './components/Home/Home';
 
 class App extends Component {
   state = {
@@ -82,15 +84,29 @@ class App extends Component {
             </Switch>
           }
         </BrowserRouter>
+        {(this.state.user!=null || window.location.pathname != '/')  ? 
+        <></> 
+        : 
+        <><HomeComp></HomeComp></>}
 
 
         {/* bottom navbar */}
-        <Navbar bg="light" expand="lg" fixed='bottom'>
+        <Navbar bg="light" expand="lg" fixed='bottom' >
           <Container fluid>
             <Nav.Link href="/"><div className='bottomNavElement'><FontAwesomeIcon icon={faSearch} size="2x" />Search</div></Nav.Link>
+            {this.state.user!=null  ?
+            <> 
             <Nav.Link href="/notebook"><div className='bottomNavElement'><div className='notebook'><FontAwesomeIcon icon={faEdit} size="2x" /></div>Notebook</div></Nav.Link>
             <Nav.Link href="/saved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x" />Saved</div></Nav.Link>
             <Nav.Link href="/profile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser} size="2x" />Profile</div></Nav.Link>
+            </>
+            :
+            <>
+            <Nav.Link href="/login"><div className='bottomNavElement'><div className='notebook'><FontAwesomeIcon icon={faEdit} size="2x" /></div>Notebook</div></Nav.Link>
+            <Nav.Link href="/login"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x" />Saved</div></Nav.Link>
+            <Nav.Link href="/login"><div className='bottomNavElement'><FontAwesomeIcon icon={faUserPlus} size="2x" style={{marginLeft:'30%'}}/>Login</div></Nav.Link>
+            </>
+            }
           </Container>
         </Navbar>
       </div>

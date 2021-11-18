@@ -15,6 +15,11 @@
     background-color:#fff;
 }
 
+.signupForm{
+    display: flex;
+    flex-direction: column;
+}
+
 .title{
     font-weight: bold;
     font-size: 20px;
@@ -58,7 +63,3 @@
     margin-top: 5%;
 }
 
-.background{
-    width: auto;
-    height: 150px;
-}
