@@ -97,13 +97,13 @@ class App extends Component {
             {this.state.user!=null  ?
             <> 
             <Nav.Link href="/notebook"><div className='bottomNavElement'><div className='notebook'><FontAwesomeIcon icon={faEdit} size="2x" /></div>Notebook</div></Nav.Link>
-            <Nav.Link href="/saved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x" />Saved</div></Nav.Link>
-            <Nav.Link href="/profile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser} size="2x" />Profile</div></Nav.Link>
+            <Nav.Link href="/saved"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x" style={{marginLeft:'5%'}}/>Saved</div></Nav.Link>
+            <Nav.Link href="/profile"><div className='bottomNavElement'><FontAwesomeIcon icon={faUser} size="2x" style={{marginLeft:'2%'}}/>Profile</div></Nav.Link>
             </>
             :
             <>
             <Nav.Link href="/login"><div className='bottomNavElement'><div className='notebook'><FontAwesomeIcon icon={faEdit} size="2x" /></div>Notebook</div></Nav.Link>
-            <Nav.Link href="/login"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x" />Saved</div></Nav.Link>
+            <Nav.Link href="/login"><div className='bottomNavElement'><FontAwesomeIcon icon={faHeart} size="2x" style={{marginLeft:'5%'}}/>Saved</div></Nav.Link>
             <Nav.Link href="/login"><div className='bottomNavElement'><FontAwesomeIcon icon={faUserPlus} size="2x" style={{marginLeft:'30%'}}/>Login</div></Nav.Link>
             </>
             }
