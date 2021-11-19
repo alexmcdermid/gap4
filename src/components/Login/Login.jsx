@@ -2,12 +2,14 @@ import Background from "../../img/background.png";
 import './Login.css';
 import { Toast, ToastContainer, ToastBody, Navbar, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import logo from './logo.png'
+
 
 export default function Login(props) {
     return (
         <div className="login">
-            <div className = 'background'style={{backgroundImage: "url(" + Background + ")"}} >
-                <div className='topTextLogin'>Rhyme Time Login</div>
+            <div className = 'background'style={{backgroundImage: "url(./logo.png)"}} >
+              <img src={logo} style={{width:'300px',height:'300px',alignSelf:'center'}}></img>
             </div>
                 <div className='login-details'>
                     <span className='title'>Login</span>
