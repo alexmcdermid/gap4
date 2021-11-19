@@ -1,5 +1,6 @@
 .login{
     background-color: #f0c24d;
+
 }
 .background{
     width: auto;
@@ -9,8 +10,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 40%;
-    border-top: 1px solid black;
     border-radius: 5%;
+    border: none;
     height: 800px;
     background-color:#fff;
 }
