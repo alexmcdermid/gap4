@@ -8,8 +8,9 @@ Hopefully the words have jogged your imagination in which case you can write you
 ##  How to play
 
 <img src="public/images/LogoutHomepageWithPicture.png" width="428">
-![screenshot](public/images/LoggedinHomepage.png)
-![screenshot](public/images/Capture.PNG)
+<img src="public/images/LoggedinHomepage.png" width="428">
+<img src="public/images/Capture.PNG" width="428">
+
 ** Note that this website is best viewed on mobile devices! **
 This was developed with mobile first in mind so when viewing - please ** right click on the page and select 'inspect', then click the button in the top left of the inspector box as displayed in the linked photo ** 
 
