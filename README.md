@@ -7,8 +7,8 @@ Hopefully the words have jogged your imagination in which case you can write you
 
 ##  How to play
 
-![screenshot](public/images/LogoutHomepageWithPicture.png)
-![screenshot](public/images/LoggedinHomepage.png)
+![screenshot](public/images/LogoutHomepageWithPicture.png =428x926)
+![screenshot](public/images/LoggedinHomepage.png =428x926)
 ![screenshot](public/images/Capture.PNG)
 ** Note that this website is best viewed on mobile devices! **
 This was developed with mobile first in mind so when viewing - please ** right click on the page and select 'inspect', then click the button in the top left of the inspector box as displayed in the linked photo ** 
