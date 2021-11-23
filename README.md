@@ -7,6 +7,7 @@ Hopefully the words have jogged your imagination in which case you can write you
 
 ##  How to play
 
+
 <img src="public/images/LogoutHomepageWithPicture.png" width="428">
 <img src="public/images/loginScreen.png" width="428">
 <img src="public/images/LoggedinHomepage.png" width="428">
@@ -31,6 +32,10 @@ Broadly, you can use this application in two roles:
 -  Json Web Token Authentication
  
 ### Getting Started:
+
+
+**Note**: This webapp is hosted on heroku, due to the way heroku works, if the site hasn't been visited recently it could take up to a minute for the site to load. 
+
 Website: https://rhymetimehome.herokuapp.com/
 
 TestResponsive Website:https://www.responsinator.com/?url=https%3A%2F%2Frhymetimehome.herokuapp.com%2F
