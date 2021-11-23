@@ -7,7 +7,7 @@ Hopefully the words have jogged your imagination in which case you can write you
 
 ##  How to play
 
-![screenshot](public/images/LogoutHomepage.png)
+![screenshot](public/images/LogoutHomepageWithPicture.png)
 ![screenshot](public/images/LoggedinHomepage.png)
 ![screenshot](public/images/Capture.PNG)
 
