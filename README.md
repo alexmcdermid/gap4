@@ -22,12 +22,11 @@ Broadly, you can use this application in two roles:
 2. Non logged-in users can only use the rhyme finder.
 
 ### Technologies Used
-- HTML
--  CSS 
 -  MongoDB
 -  Express.js
 -  React.js
 -  Node.js
+-  JS,HTML,CSS
 -  REST APIs -- https://rhymebrain.com/
 -  Json Web Token Authentication
  
