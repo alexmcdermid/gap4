@@ -24,11 +24,11 @@ Broadly, you can use this application in two roles:
 ### Technologies Used
 - HTML
 -  CSS 
--  ReactJS
-- Express Node.js
-- MongoDB
--  REST APIs
-  -- https://rhymebrain.com/
+-  MongoDB
+-  Express.js
+-  React.js
+-  Node.js
+-  REST APIs -- https://rhymebrain.com/
 -  Json Web Token Authentication
  
 ### Getting Started:
