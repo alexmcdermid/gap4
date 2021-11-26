@@ -50,11 +50,7 @@ function NoteBook(props) {
                     ))}
                 </div>
                 :
-                <div className='searched-items'>
-                    <div className='items' >No notes yet <br />
-                        <span className="message">Click the notepad below to start!</span>
-                        <button type='submit' id="trash" > <FontAwesomeIcon icon={faTrashAlt} size="0.5x" color='rgb(24, 23, 23)' /></button><br /></div>
-                </div>
+                <></>
             }
 
         </div>

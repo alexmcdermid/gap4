@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Rhyme Time
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A social, mobile-first application that makes poets out of everyone! Users enter a word and the application returns all words that rhyme with it and helps pick the best one.
 
-## Available Scripts
+Hopefully the words have jogged your imagination in which case you can write your thoughts down into a convenient Notebook.
 
-In the project directory, you can run:
 
-### `yarn start`
+##  How to play
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="public/images/LogoutHomepageWithPicture.png" width="428">
+<img src="public/images/loginScreen.png" width="428">
+<img src="public/images/LoggedinHomepage.png" width="428">
+<img src="public/images/Capture.PNG" >
 
-### `yarn test`
+** Note that this website is best viewed on mobile devices! **
+This was developed with mobile first in mind so when viewing on desktop, please right click on the page and select 'inspect', then click the button in the top left of the inspector box as displayed in the linked photo.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Broadly, you can use this application in two roles:
 
-### `yarn build`
+1. Logged-in users can utilize the full functionality of the website - finding rhymes and saved notebooks.
+2. Non logged-in users can only use the rhyme finder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Technologies Used
+-  MongoDB
+-  Express.js
+-  React.js
+-  Node.js
+-  JS,HTML,CSS
+-  REST APIs -- https://rhymebrain.com/
+-  Json Web Token Authentication
+ 
+### Getting Started:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Note**: This webapp is hosted on heroku, due to the way heroku works, if the site hasn't been visited recently it could take up to a minute for the site to load. 
 
-### `yarn eject`
+Website: https://rhymetimehome.herokuapp.com/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+TestResponsive Website:https://www.responsinator.com/?url=https%3A%2F%2Frhymetimehome.herokuapp.com%2F
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Icebox Items:
+- CSS styling for Screen size greater than 600px
+- Implement authentication with OAuth
+- Making a active interface with the writing page and word saved page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Reference:
+* FontAwesome Icons
+* Bootstrap
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

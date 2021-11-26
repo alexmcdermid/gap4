@@ -1,16 +1,17 @@
 import Background from "../../img/background.png";
 import './Signup.css';
+import logo from './logo.png'
+
 
 export default function Signup(props) {
     return (
         <div className="login">
             <div className = 'background'style={{backgroundImage: "url(" + Background + ")"}} >
-                <div className='topTextLogin'>Rhyme Time Signup</div>
+                <img src={logo} style={{width:'300px',height:'300px',alignSelf:'center'}}></img>
             </div>
                 <div className='login-details'>
                     <span className='title'>Create an Account</span>
                     <span className='sub-title'>Let's get started!</span>
-                    <br/>
                     <div className='signup-form'onSubmit={(evt)=>props.handleSubmit(evt)}>
                     <form className='signupForm' autoComplete="off">
                         <label className='name'>Name</label>

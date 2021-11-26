@@ -2,12 +2,14 @@ import Background from "../../img/background.png";
 import './Login.css';
 import { Toast, ToastContainer, ToastBody, Navbar, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import logo from './logo.png'
+
 
 export default function Login(props) {
     return (
         <div className="login">
-            <div className = 'background'style={{backgroundImage: "url(" + Background + ")"}} >
-                <div className='topTextLogin'>Rhyme Time Login</div>
+            <div className = 'background'style={{backgroundImage: "url(./logo.png)"}} >
+              <img src={logo} style={{width:'300px',height:'300px',alignSelf:'center'}}></img>
             </div>
                 <div className='login-details'>
                     <span className='title'>Login</span>
@@ -15,9 +17,9 @@ export default function Login(props) {
                     <div className='form'onSubmit={(evt)=>props.handleSubmit(evt)}>
                     <form className='signupForm' autoComplete="off" >
                         <label className='email-address'>Email address</label>
-                        <input name='email' className='email' value={props.email} onChange={(evt)=>props.handleChange(evt)} required></input>
+                        <input name='email' className='email'  value={props.email} onChange={(evt)=>props.handleChange(evt)} required></input>
                         <label className='password'>Password</label>
-                        <input type = 'password'name='password' className='password-detail' value={props.password} onChange={(evt)=>props.handleChange(evt)} required ></input>
+                        <input type = 'password' name='password'  className='password-detail'  value={props.password} onChange={(evt)=>props.handleChange(evt)} required ></input>
                         <button className='submit-login' type='submit'>Log In</button>
                         <span className='forgot-password'>Forgot Password</span>
                         </form>

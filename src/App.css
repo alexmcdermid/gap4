@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  font-family: SFProText;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
   color: #000000;
   /* margin-top: 10%; */
+  
 
 }
-
 
 a.nav-link {
   color: #1c1c1e !important;
@@ -29,12 +29,14 @@ a.nav-link {
   flex-direction: column;
   align-items: center;
   
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.24px;
+
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -47,7 +49,7 @@ nav.navbar{
 
 .topText{
   margin-top: 10%;
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -60,7 +62,7 @@ nav.navbar{
 
 .topTextLogin{
   padding-top: 10%;
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -77,7 +79,8 @@ nav.navbar{
 }
 
 /* creating some padding on left side of notebook icon to center correctly */
-.notebook {
+.noteBook {
+  margin-top: none;
   margin-left: 12%;
 }
 
@@ -127,14 +130,14 @@ button.mainSearch{
   border: none;
   padding: 0!important;
   /*optional*/
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   /*input has OS specific font-family*/
   color: #000000;
 }
 
 .syllableText{
   text-align: left;
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -146,7 +149,7 @@ button.mainSearch{
 }
 
 .resultsHeader{
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
   padding: 5%;
   padding-top: 6%;
@@ -188,6 +191,11 @@ button.mainSearch{
   border: none;
   border-radius: 10px;
   margin-right: 2%;
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+  color: white;
 }
 
 .bigRedLoginToSave {
@@ -196,7 +204,13 @@ button.mainSearch{
   background-color: #ff7f90;
   border: none;
   border-radius: 10px;
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+  color: white;
 }
+
 
 .bigRedClearButton{
   width: 80px;
@@ -204,6 +218,12 @@ button.mainSearch{
   background-color: #ff7f90;
   border: none;
   border-radius: 10px;
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+  color: white;
+  
 }
 
 .savedPage{
@@ -268,7 +288,7 @@ button.mainSearch{
 }
 
 .homeWelcomeText{
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 28px;
   font-weight: bold;
   font-stretch: normal;
@@ -280,7 +300,7 @@ button.mainSearch{
 }
 
 .homeGreyText{
-  font-family: SFPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
@@ -308,13 +328,13 @@ button.mainSearch{
 }
 
 .yellowBox2{
-  width:  140px;
-  height: 160px;
+  width:  47%;
+  height: 100px;
   flex-grow: 0;
   padding: 27px 17px 36.8px 18px;
   border-radius: 4px;
   background-color: #f0c24d;
-  padding-top: 40%;
+  padding-top: 14%;
 }
 
 
@@ -355,10 +375,9 @@ button.mainSearch{
   border: none;
   padding: 0!important;
   /*optional*/
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   /*input has OS specific font-family*/
   text-decoration: none;
-  font-family: SFPro;
   font-size: 20px;
   font-weight: 500;
   font-stretch: normal;
@@ -378,8 +397,8 @@ button.mainSearch{
 .homePageNoUserText{
   text-align: left;
   margin-bottom: 10%;
-  font-family: SFPro;
-  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

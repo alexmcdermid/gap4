@@ -4,6 +4,7 @@ import Result from '../Result/Result';
 import { Toast, ToastContainer, Alert, ToastBody, Navbar, Container, Nav } from 'react-bootstrap';
 import jwt_decode from 'jwt-decode';
 import { Link } from 'react-router-dom';
+import logo from './logo.png'
 
 
 class HomeComp extends Component {
@@ -202,14 +203,15 @@ class HomeComp extends Component {
             </div>
             <div className='yellowBoxesContainer'>
               <div className='yellowBox2'>
-                <div className='image'></div>
-                <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' > Notebook </Link>
+              <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' > Notebook </Link>
+                
               </div>
               <div className='yellowBox2'>
-              <div className='image'></div>
               <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' > Saved </Link>
               </div>
             </div>
+            <img src={logo} style={{width:'150px',height:'150px',alignSelf:'center'}}></img>
+
             <Navbar bg="light" expand="lg" fixed='bottom'>
               <Container>
                 <ToastContainer className="p-3" position='bottom-center' style={{ marginBottom: '20%' }}>
@@ -230,9 +232,9 @@ class HomeComp extends Component {
           }
         {/* toats */}
         {this.state.wordsToSave.length > 0 ?  
-        <Navbar  bg="light" expand="lg" fixed='bottom'>
+        <Navbar  bg="light" expand="lg" fixed='top'>
           <Container>
-          <ToastContainer className="p-3" position='bottom-center' style={{marginBottom:'20%'}}>
+          <ToastContainer className="p-3" position='top-center' >
             {this.state.userName!=null ?
             <>
           <Toast>
@@ -267,6 +269,7 @@ class HomeComp extends Component {
             <br/>
             <div className='linkContainer'>
             <Link onClick={()=>{window.location.href = '/login'}} className='redButtonLink' >Login To Save</Link>
+            
             </div>
             </ToastBody>
           </Toast>

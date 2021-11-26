@@ -67,7 +67,7 @@ class Search extends Component {
             <div className='searchbarWrapper'>
             <input className='mainInput' onChange={this.handleSearchChange} placeholder='   Search' />
             {/* could probably change this back to the default button type and style like the search result links */}
-            <Button className="mainSearch" onClick={()=>{this.handleSearchSubmit(this)}}><FontAwesomeIcon icon={faSearch}/></Button>
+            <Button className="mainSearch" onClick={()=>{this.handleSearchSubmit(this)}}><FontAwesomeIcon icon={faSearch} style={{marginBottom:'10%'}} /></Button>
             <Dropdown>
                 <Dropdown.Toggle id="dropdown-basic">
                     Filters
